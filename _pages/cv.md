@@ -11,22 +11,23 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* MEng in Joint Mathematics and Computer Science, Imperial College London, 2015 -- 2019
+* Ph.D in Applied Mathematics and Mathematical Physics, Imperial College London, 2019 -- 2023 (expected)
 
-Work experience
+Professional Employments
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Current: Research Assistant
+  * Imperial College London, UK
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+* Summer 2019: Research Resident 
+  * Cervest Ltd., UK
+
+* Summer 2017: Summer Technology Analyst
+  * JP Morgan, Canary Wharf Office, UK
+
+* Summer 2018: Software Engineering Summer Placement 
+  * Bloomberg L.P., UK
+
 Skills
 ======
 * Skill 1
@@ -54,6 +55,6 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
+<!-- Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
