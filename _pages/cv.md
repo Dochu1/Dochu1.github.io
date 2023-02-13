@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Short CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -11,38 +11,42 @@ redirect_from:
 
 Education
 ======
-* MEng in Joint Mathematics and Computer Science, Imperial College London, 2015 -- 2019
-* Ph.D in Applied Mathematics and Mathematical Physics, Imperial College London, 2019 -- 2023 (expected)
+* 2019 -- 2023 (expected)
+  * **Ph.D** in Applied Mathematics and Mathematical Physics, Imperial College London.
+
+* 2015 -- 2019
+  * **MEng** in Joint Mathematics and Computer Science, Imperial College London, 
+
 
 Professional Employments
 ======
 * Current: Research Assistant
-  * Imperial College London, UK
+  * Department of Mathematics, Imperial College London, UK
 
 * Summer 2019: Research Resident 
   * Cervest Ltd., UK
 
-* Summer 2017: Summer Technology Analyst
-  * JP Morgan, Canary Wharf Office, UK
-
 * Summer 2018: Software Engineering Summer Placement 
   * Bloomberg L.P., UK
 
-Skills
+* Summer 2017: Summer Technology Analyst
+  * JP Morgan, Canary Wharf Office, UK
+
+<!-- Skills
 ======
 * Skill 1
 * Skill 2
   * Sub-skill 2.1
   * Sub-skill 2.2
   * Sub-skill 2.3
-* Skill 3
+* Skill 3 -->
 
-Publications
+<!-- Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+   -->
 <!-- Talks
 ======
   <ul>{% for post in site.talks %}
