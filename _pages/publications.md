@@ -10,7 +10,7 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 #### 2023
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2023. On the interactions between mean flows and inertial gravity waves. Preprint. Under peer review. <https://arxiv.org/abs/2302.04838>
 
-- Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Lagrangian reduction and wave mean flow interaction. Preprint. Under peer review. <https://arxiv.org/abs/2301.04121>
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Lagrangian reduction and wave mean flow interaction. Physica D: Nonlinear Phenomena, 133847. <https://doi.org/10.1016/j.physd.2023.133847>
 
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Coupling of Waves to Sea Surface Currents Via Horizontal Density Gradients. In: Chapron, B. et al. (eds) Stochastic Transport in Upper Ocean Dynamics. STUOD 2021. Mathematics of Planet Earth, vol 10. Springer, Cham. <https://doi.org/10.1007/978-3-031-18988-3_8>
 
