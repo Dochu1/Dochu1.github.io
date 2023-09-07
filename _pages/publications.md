@@ -8,6 +8,8 @@ author_profile: true
 You can also find my publications on [my Google Scholar profile](https://scholar.google.co.uk/citations?user=6_olQZoAAAAJ&hl=en). The preprint versions of these publications can also be found on [my arXiv profile](https://arxiv.org/a/hu_r_3).
 
 #### 2023
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Geometric Mechanics of the Vertical Slice Model. Preprint. Under peer review. <https://arxiv.org/abs/2309.02602>
+
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2023. On the interactions between mean flows and inertial gravity waves. Preprint. Under peer review. <https://arxiv.org/abs/2302.04838>
 
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Lagrangian reduction and wave mean flow interaction. Physica D: Nonlinear Phenomena, 133847. <https://doi.org/10.1016/j.physd.2023.133847>
