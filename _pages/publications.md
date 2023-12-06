@@ -7,10 +7,13 @@ author_profile: true
 
 You can also find my publications on [my Google Scholar profile](https://scholar.google.co.uk/citations?user=6_olQZoAAAAJ&hl=en). The preprint versions of these publications can also be found on [my arXiv profile](https://arxiv.org/a/hu_r_3).
 
-#### 2023
-- Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Geometric Mechanics of the Vertical Slice Model. Preprint. Under peer review. <https://arxiv.org/abs/2309.02602>
+#### 2024
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2024. On the Interactions Between Mean Flows and Inertial Gravity Waves in the WKB Approximation. In: Chapron, B. et al. (eds) Stochastic Transport in Upper Ocean Dynamics II. STUOD 2022. Mathematics of Planet Earth, vol 11. Springer, Cham. <https://doi.org/10.1007/978-3-031-40094-0_5>
 
-- Holm, D. D., **Hu, R.**, & Street, O. D., 2023. On the interactions between mean flows and inertial gravity waves. Preprint. Under peer review. <https://arxiv.org/abs/2302.04838>
+#### 2023
+-**Hu, R.**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London.
+
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Geometric Mechanics of the Vertical Slice Model. Preprint. Under peer review. <https://arxiv.org/abs/2309.02602>
 
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Lagrangian reduction and wave mean flow interaction. Physica D: Nonlinear Phenomena, 133847. <https://doi.org/10.1016/j.physd.2023.133847>
 
