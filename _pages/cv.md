@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* 2019 -- 2023 (expected)
+* 2019 -- 2023 
   * **Ph.D** in Applied Mathematics and Mathematical Physics, Imperial College London.
 
 * 2015 -- 2019
@@ -20,7 +20,7 @@ Education
 
 Professional Employments
 ======
-* Current: Research Assistant
+* Current: Research Associate
   * Department of Mathematics, Imperial College London, UK
 
 * Summer 2019: Research Resident 
