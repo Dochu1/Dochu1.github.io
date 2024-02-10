@@ -11,7 +11,7 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2024. On the Interactions Between Mean Flows and Inertial Gravity Waves in the WKB Approximation. In: Chapron, B. et al. (eds) Stochastic Transport in Upper Ocean Dynamics II. STUOD 2022. Mathematics of Planet Earth, vol 11. Springer, Cham. <https://doi.org/10.1007/978-3-031-40094-0_5>
 
 #### 2023
-- **Hu, R.**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London. <http://hdl.handle.net/10044/1/109120>
+- **Hu, R.**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London. <https://doi.org/10.25560/109120>
 
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2023. Geometric Mechanics of the Vertical Slice Model. Preprint. Under peer review. <https://arxiv.org/abs/2309.02602>
 
