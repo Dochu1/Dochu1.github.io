@@ -12,6 +12,8 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Geometric theory of perturbation dynamics around non-equilibrium fluid flows. Preprint. Under peer review. <https://arxiv.org/abs/2402.10040>
 
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Deterministic and Stochastic Geometric Mechanics for Hall MHD. Preprint. Under peer review. <https://arxiv.org/abs/2404.06528>
+
 #### 2023
 - **Hu, R.**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London. <https://doi.org/10.25560/109120>
 
