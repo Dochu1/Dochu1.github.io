@@ -14,7 +14,7 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Deterministic and Stochastic Geometric Mechanics for Hall MHD. Preprint. Accepted. <https://arxiv.org/abs/2404.06528>
 
-- Dombret, A., Holm, D. D., **Hu, R.**, & Street, O. D., Wang, H., 2024. Collisions of Burgers Bores with Nonlinear Waves. Springer Proceedings. Under peer review. <https://arxiv.org/abs/2402.10040>
+- Dombret, A., Holm, D. D., **Hu, R.**, Street, O. D., & Wang, H., 2024. Collisions of Burgers Bores with Nonlinear Waves. Springer Proceedings. Under peer review. <https://arxiv.org/abs/2402.10040>
 
 #### 2023
 - **Hu, R.**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London. <https://doi.org/10.25560/109120>
