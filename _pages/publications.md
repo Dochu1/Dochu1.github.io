@@ -10,9 +10,11 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 #### 2024
 - Holm, D. D., **Hu, R.**, & Street, O. D., 2024. On the Interactions Between Mean Flows and Inertial Gravity Waves in the WKB Approximation. In: Chapron, B. et al. (eds) Stochastic Transport in Upper Ocean Dynamics II. STUOD 2022. Mathematics of Planet Earth, vol 11. Springer, Cham. <https://doi.org/10.1007/978-3-031-40094-0_5>
 
-- Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Geometric theory of perturbation dynamics around non-equilibrium fluid flows. Preprint. Under peer review. <https://arxiv.org/abs/2402.10040>
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Geometric theory of perturbation dynamics around non-equilibrium fluid flows. Springer Proceedings. Accepted. <https://arxiv.org/abs/2402.10040>
 
-- Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Deterministic and Stochastic Geometric Mechanics for Hall MHD. Preprint. Under peer review. <https://arxiv.org/abs/2404.06528>
+- Holm, D. D., **Hu, R.**, & Street, O. D., 2024. Deterministic and Stochastic Geometric Mechanics for Hall MHD. Preprint. Accepted. <https://arxiv.org/abs/2404.06528>
+
+- Dombret, A., Holm, D. D., **Hu, R.**, & Street, O. D., Wang, H., 2024. Collisions of Burgers Bores with Nonlinear Waves. Springer Proceedings. Under peer review. <https://arxiv.org/abs/2402.10040>
 
 #### 2023
 - **Hu, R.**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London. <https://doi.org/10.25560/109120>
