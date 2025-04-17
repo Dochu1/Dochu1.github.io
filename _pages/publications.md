@@ -28,7 +28,7 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 #### 2023
 - **R. Hu**, 2023. Stochastic Geometric Mechanics for Geophysical Fluid Dynamics and Wave-Current Interactions. PhD thesis, Imperial College London. <https://doi.org/10.25560/109120>
 
-- D. D. Holm, **R. Hu** and O. D. Street, 2023. Geometric Mechanics of the Vertical Slice Model. Geometric Mechanics 1 (02), 77-121. \url{https://doi.org/10.1142/S2972458924500011}
+- D. D. Holm, **R. Hu** and O. D. Street, 2023. Geometric Mechanics of the Vertical Slice Model. Geometric Mechanics 1 (02), 77-121. <https://doi.org/10.1142/S2972458924500011>
 
 - D. D. Holm, **R. Hu** and O. D. Street, 2023. Lagrangian reduction and wave mean flow interaction. Physica D: Nonlinear Phenomena, 133847. <https://doi.org/10.1016/j.physd.2023.133847>
 
