@@ -8,10 +8,9 @@ author_profile: true
 You can also find my publications on [my Google Scholar profile](https://scholar.google.co.uk/citations?user=6_olQZoAAAAJ&hl=en). The preprint versions of these publications can also be found on [my arXiv profile](https://arxiv.org/a/hu_r_3).
 
 #### 2025
-- D. D. Holm, **R. Hu**, O. D. Street, H. Wang, 2025. Compound Burgers-KdV Soliton Behaviour: Refraction, Reflection and Fusion. Preprint. <https://arxiv.org/abs/2505.17026>
+- D. D. Holm, **R. Hu**, O. D. Street and H. Wang, 2025. Compound Burgers-KdV Soliton Behaviour: Refraction, Reflection and Fusion. Preprint. <https://arxiv.org/abs/2505.17026>
   
-- D. D. Holm, **R. Hu** and O. D. Street, 2025.  A variational perspective on
-plasma dynamics in thin domains. Nonlinearity, 38.9, p. 095015. <https://doi.org/10.1088/1361-6544/adffd8> 
+- D. D. Holm, **R. Hu** and O. D. Street, 2025.  A variational perspective on plasma dynamics in thin domains. Nonlinearity, 38.9, p. 095015. <https://doi.org/10.1088/1361-6544/adffd8> 
 
 - **R. Hu** and L. Peng, 2025. Stochastic multisymplectic PDEs and their structure-preserving numerical methods. Studies in Applied Mathematics, 155.3, e70112. <https://doi.org/10.1111/sapm.70112>
 
