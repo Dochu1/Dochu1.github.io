@@ -7,14 +7,17 @@ author_profile: true
 
 You can also find my publications on [my Google Scholar profile](https://scholar.google.co.uk/citations?user=6_olQZoAAAAJ&hl=en). The preprint versions of these publications can also be found on [my arXiv profile](https://arxiv.org/a/hu_r_3).
 
+#### 2026
+- T. Diamantakis and **R. Hu**, 2026. Lagrangian averaging of singular stochastic actions for fluid dynamics. Lecture Notes in Computer Science 16034 proceedings, (pp. 416–430). <https://doi.org/10.1007/978-3-032-03921-7_43>
+
 #### 2025
+- D. D. Holm, **R. Hu** and H. Wang, 2025. Surface Wave Solutions in 1D and 2D for the Broer-Kaup-Boussinesq-Kupershmidt (BKBK) System. Preprint. <http://arxiv.org/abs/2510.02577>
+
 - D. D. Holm, **R. Hu**, O. D. Street and H. Wang, 2025. Compound Burgers-KdV Soliton Behaviour: Refraction, Reflection and Fusion. Preprint. <https://arxiv.org/abs/2505.17026>
   
 - D. D. Holm, **R. Hu** and O. D. Street, 2025.  A variational perspective on plasma dynamics in thin domains. Nonlinearity, 38.9, p. 095015. <https://doi.org/10.1088/1361-6544/adffd8> 
 
 - **R. Hu** and L. Peng, 2025. Stochastic multisymplectic PDEs and their structure-preserving numerical methods. Studies in Applied Mathematics, 155.3, e70112. <https://doi.org/10.1111/sapm.70112>
-
-- T. Diamantakis and **R. Hu**, 2025. Lagrangian averaging of singular stochastic actions for fluid dynamics. Preprint. <https://arxiv.org/abs/2504.10177>
 
 - D. D. Holm, **R. Hu** and O. D. Street, 2025. Geometric Theory of Perturbation Dynamics Around Non-equilibrium Fluid Flows. In: Chapron, B. et al. (eds) Stochastic Transport in Upper Ocean Dynamics III. STUOD 2023. Mathematics of Planet Earth, vol 13. Springer, Cham. <https://doi.org/10.1007/978-3-031-70660-8_5>
 
@@ -23,7 +26,7 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 #### 2024
 - D. D. Holm, **R. Hu** and O. D. Street, 2024. Deterministic and stochastic geometric mechanics for Hall magnetohydrodynamics. Proc. R. Soc. A.48020240267 <http://doi.org/10.1098/rspa.2024.0267>
 
-- T. Diamantakis and **R. Hu**, 2024. Variational closures for composite homogenised fluid flows. Preprint. <https://arxiv.org/abs/2409.10408>
+- T. Diamantakis, **R. Hu** and J-M. Leahy, 2024. Variational closures for composite homogenised fluid flows. Preprint. <https://arxiv.org/abs/2409.10408>
 
 - D. D. Holm, **R. Hu** and O. D. Street, 2024. On the Interactions Between Mean Flows and Inertial Gravity Waves in the WKB Approximation. In: Chapron, B. et al. (eds) Stochastic Transport in Upper Ocean Dynamics II. STUOD 2022. Mathematics of Planet Earth, vol 13. Springer, Cham. <https://doi.org/10.1007/978-3-031-40094-0_5>
 
