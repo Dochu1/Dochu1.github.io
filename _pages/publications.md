@@ -10,8 +10,9 @@ You can also find my publications on [my Google Scholar profile](https://scholar
 #### 2026
 - T. Diamantakis and **R. Hu**, 2026. Lagrangian averaging of singular stochastic actions for fluid dynamics. Lecture Notes in Computer Science 16034 proceedings, (pp. 416–430). <https://doi.org/10.1007/978-3-032-03921-7_43>
 
+- D. D. Holm, **R. Hu** and H. Wang, 2025. Surface Wave Solutions in 1D and 2D for the Broer-Kaup-Boussinesq-Kupershmidt (BKBK) System. Studies in Applied Mathematics, 156 (1), e70165. <https://doi.org/10.1111/sapm.70165>
+
 #### 2025
-- D. D. Holm, **R. Hu** and H. Wang, 2025. Surface Wave Solutions in 1D and 2D for the Broer-Kaup-Boussinesq-Kupershmidt (BKBK) System. Preprint. <http://arxiv.org/abs/2510.02577>
 
 - D. D. Holm, **R. Hu**, O. D. Street and H. Wang, 2025. Compound Burgers-KdV Soliton Behaviour: Refraction, Reflection and Fusion. Preprint. <https://arxiv.org/abs/2505.17026>
   
