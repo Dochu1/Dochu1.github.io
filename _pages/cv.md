@@ -20,7 +20,10 @@ Education
 
 Professional Employments
 ======
-* Current: Research Associate
+* Current: Visiting Assistant Professor
+  * Department of Mathematics, University of California San Diego, US
+
+* 2023 -- 2026: Research Associate
   * Department of Mathematics, Imperial College London, UK
 
 * Summer 2019: Research Resident 
