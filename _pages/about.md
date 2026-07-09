@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am a **Stefan E. Warschawski (S.E.W) Visiting Assistant Professor** in the department of Mathematics at the University of California San Diego. My main research topics are in the realm of (stochastic/rough) geometric mechanics with applications to: structural preserving discretisation of dynamical systems, numerical methods for PDEs/SPDEs, data assimilation, machine learning algorithms and architectures, as well as geophysical fluid flows. 
+I am a **Stefan E. Warschawski (S.E.W) Visiting Assistant Professor** in the department of Mathematics at the University of California San Diego. My main research topics are in the realm of (stochastic/rough) geometric mechanics with applications to: structural preserving discretisation of dynamical systems, numerical methods for PDEs/SPDEs, data assimilation, machine learning algorithms and architectures, as well as geophysical fluid flows. I am also affiliated with Imperial College London as a Visiting Researcher.
 
 
 Previously, I was a research associate in the department of Mathematics at Imperial College London working on the **Stochastic Parameterization of Ocean Turbulence for Observational Networks** (SPOT-ON) project. The project was centered on the derivation and analysis of new stochastic and deterministic geophysical fluid models through the scope of geometric mechanics, as well as the numerical simulations of these models. 
