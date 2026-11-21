@@ -1,0 +1,47 @@
+---
+title: "Science"
+permalink: /science/
+author_profile: true
+excerpt: "Stochastic modelling of fluids through geometric mechanics, and interactive demonstrations of structure-preserving numerical methods."
+---
+<p>My research combines geometric mechanics with stochastic analysis to build fluid models that keep their physical structure when noise is added,
+and numerical methods that keep that structure when the models are discretised.
+This page collects introductions to the modelling and interactive demonstrations of the numerics.</p>
+
+<h2 id="modelling">Modelling</h2>
+<div class="box-grid one">
+  <div class="box-item">
+    <h3>Stochastic modelling of fluids</h3>
+    <p>Why we add noise to fluid models, and how to do it without destroying their geometry.
+      It covers stochastic advection by Lie transport (SALT) and stochastic forcing by Lie transport (SFLT),
+      the circulation and energy each one keeps, and how this leads to stochastic wave effects on ocean currents.</p>
+    <p><a href="{{ '/science/stochastic-modelling/' | relative_url }}" class="btn btn--info">Read the introduction</a></p>
+  </div>
+</div>
+
+<h2 id="demos">Demos</h2>
+<p>Interactive demonstrations of structure-preserving numerical methods for stochastic and rough dynamical systems.
+They run live in your browser. Each one integrates the same noise or driving path with a structure-preserving scheme and a standard alternative,
+so you can watch which conservation laws survive discretisation.</p>
+
+<div class="box-grid one">
+  <div class="box-item">
+    <h3>Stochastic multisymplectic PDEs</h3>
+    <p>The nonlinear Schrödinger equation with stochastic transport or stochastic dispersion, written as a stochastic multisymplectic PDE.
+      The Preissman box scheme, midpoint in both time and space, keeps the discrete 2-form conservation law, mass and, for linear problems,
+      momentum to machine precision, while a linearly implicit scheme does not.</p>
+    <p><a href="{{ '/science/stochastic-multisymplectic/' | relative_url }}" class="btn btn--info">Launch demo</a></p>
+  </div>
+
+  <div class="box-item">
+    <h3>Rough-path-driven adjoint systems</h3>
+    <p>Gradient-based data assimilation for a pendulum driven by a fractional Brownian path. The rough symplectic partitioned Runge–Kutta pairing
+      keeps the adjoint quasi-conservation law to machine precision and returns the exact gradient of the discrete problem;
+      a mismatched explicit pairing gives biased gradients.</p>
+    <p><a href="{{ '/science/rough-adjoint/' | relative_url }}" class="btn btn--info">Launch demo</a></p>
+  </div>
+</div>
+
+<h3>Related papers</h3>
+{% assign related = site.data.publications | where_exp: "p", "p.tags contains 'structure-preserving'" %}
+{% include pub-list.html pubs=related %}

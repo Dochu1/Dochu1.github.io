@@ -1,0 +1,233 @@
+/* Site-wide restyle in the manner of mleok.science: UCSD navy and gold, Inter,
+   light page background with white cards. Loaded after the theme's main.css
+   (see _includes/head/custom.html); the page layout itself is unchanged. */
+
+:root {
+  --navy: #182B49;
+  --navy-2: #2A456C;
+  --gold: #C69214;
+  --gold-light: #F3E3B8;
+  --text: #333333;
+  --text-light: #666666;
+  --line: #EAEAEA;
+  --bg: #F7F9FC;
+  --white: #FFFFFF;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Base ---------- */
+html, body { background-color: var(--bg); }
+* { font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif; }
+body,
+h1, h2, h3, h4, h5, h6,
+.masthead__inner-wrap,
+.sidebar p, .sidebar li, .sidebar .author__name,
+.author__urls-wrapper,
+.page__footer-copyright, .page__footer-follow li,
+.archive__item-title,
+.btn {
+  font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+body { color: var(--text); line-height: 1.6; }
+
+a { color: var(--navy-2); }
+a:hover { color: var(--gold); }
+strong, b { color: var(--navy); }
+
+/* ---------- Top navigation ---------- */
+.masthead {
+  background: var(--navy);
+  border-bottom: none;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.greedy-nav { background: var(--navy); padding-left: 9rem; }
+/* site name pinned left; menu links pushed right. The greedy-nav script measures the width of
+   .visible-links, so the name is taken out of the flow and its space reserved with padding. */
+.greedy-nav .visible-links { margin-left: auto; }
+.greedy-nav .visible-links li:first-child { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+.greedy-nav button:not(.hidden) + .visible-links { margin-right: 3.2em; }
+.greedy-nav a { color: var(--white); }
+.greedy-nav a:hover, .greedy-nav a.active { color: var(--gold); }
+.greedy-nav a.active { font-weight: 600; }
+.greedy-nav .visible-links li:first-child a { color: var(--white); letter-spacing: 1px; font-weight: 700; }
+.greedy-nav .visible-links a:before { background: var(--gold); }
+.greedy-nav button { background-color: var(--navy-2); border-radius: 4px; }
+.greedy-nav .hidden-links { background: var(--navy); border-color: var(--navy-2); }
+.greedy-nav .hidden-links:before { border-color: var(--navy-2) transparent; }
+.greedy-nav .hidden-links:after { border-color: var(--navy) transparent; }
+.greedy-nav .hidden-links li { border-bottom-color: rgba(255, 255, 255, 0.08); }
+.greedy-nav .hidden-links a:hover { color: var(--gold); background: rgba(255, 255, 255, 0.05); }
+
+/* ---------- Sidebar ---------- */
+.author__avatar img {
+  border: 4px solid var(--gold);
+  padding: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.sidebar .author__name { color: var(--navy); font-size: 1.15em; font-weight: 700; }
+.author__bio { color: var(--gold); font-weight: 600; }
+.author__urls li { color: var(--text-light); }
+.author__urls a { color: var(--navy-2); }
+.author__urls a:hover { color: var(--gold); }
+.author__urls.social-icons i, .author__urls.social-icons .fa, .author__urls.social-icons .fas,
+.author__urls.social-icons .fab, .author__urls.social-icons .ai { color: var(--gold) !important; }
+.author__urls { background: var(--white); }
+@media (min-width: 64em) { .author__urls { background: transparent; } }
+
+/* ---------- Content cards ---------- */
+.page__inner-wrap, .archive__inner-wrap {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1.6em 2em 1.2em;
+}
+@media (max-width: 47.99em) { .page__inner-wrap, .archive__inner-wrap { padding: 1.2em 1.1em 1em; } }
+
+.page__title {
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--gold);
+  margin-bottom: 0.6em;
+}
+
+/* boxed items: research interests on the home page and the demo list */
+.box-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1em; margin: 1em 0 1.5em; }
+.box-grid.one { grid-template-columns: 1fr; gap: 1.2em; }
+@media (max-width: 47.99em) { .box-grid { grid-template-columns: 1fr; } }
+.box-item {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.4em 1.2em 0.8em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box-item:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); }
+.page__content .box-item h2, .page__content .box-item h3 {
+  border-bottom: none; display: block; padding-bottom: 0; margin: 0.6em 0 0.4em; color: var(--navy);
+}
+.page__content .box-item h2 { font-size: 1.25em; }
+.page__content .box-item h3 { font-size: 1.05em; }
+.box-item p { font-size: 0.9em; color: var(--text-light); margin-bottom: 0.4em; }
+
+.page__content h2, .archive h2 {
+  color: var(--navy);
+  font-weight: 700;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--gold);
+  margin-top: 1.6em;
+}
+.page__content h3, .archive h3 { color: var(--navy); }
+.page__content h4, .archive h4 { color: var(--gold); font-weight: 700; letter-spacing: 0.5px; margin: 1.6em 0 0.3em; }
+
+.page__content ul li::marker, .archive ul li::marker { color: var(--gold); }
+
+/* long display equations scroll sideways instead of widening the page */
+.MJXc-display, .MathJax_Display, .MathJax_SVG_Display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.page__content li, .archive li { margin-bottom: 0.4em; }
+
+/* ---------- Publications ---------- */
+ul.pub-list { list-style: none; margin-left: 0; padding-left: 0; }
+ul.pub-list li.pub { padding: 0.9em 0; margin: 0; border-bottom: 1px solid var(--line); }
+ul.pub-list li.pub:last-child { border-bottom: none; }
+.pub-title { font-weight: 600; color: var(--text); margin-bottom: 0.2em; }
+.pub-meta { color: var(--text-light); font-size: 0.85em; margin-bottom: 0.5em; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pub-links a {
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  border: 1px solid var(--navy);
+  border-radius: 4px;
+  padding: 2px 10px;
+  transition: all 0.2s ease;
+}
+.pub-links a:hover { background: var(--navy); color: var(--white); }
+.pub-tag {
+  font-size: 0.65em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--gold-light);
+  color: #6b4e08;
+}
+
+/* collapsible publication list (home page) */
+details.pubs {
+  margin: 1em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+details.pubs > summary {
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.9em 1.3em;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  transition: background-color 0.3s ease;
+}
+details.pubs > summary::-webkit-details-marker { display: none; }
+details.pubs > summary:hover { background: var(--navy-2); }
+details.pubs > summary::after { content: '+'; color: var(--gold); font-size: 1.5em; line-height: 1; }
+details.pubs[open] > summary::after { content: '\2212'; }
+details.pubs .pubs-content { padding: 0.2em 1.3em 0.4em; background: var(--white); }
+
+/* ---------- Science page ---------- */
+.sci-lede { font-size: 1.05em; color: var(--text); }
+.page__content blockquote {
+  margin: 1.2em 0;
+  padding: 0.8em 1.2em;
+  border-left: 4px solid var(--gold);
+  background: var(--bg);
+  border-radius: 0 8px 8px 0;
+  color: var(--navy);
+  font-style: italic;
+}
+.sci-fig { margin: 1.4em 0; }
+.sci-figure { display: block; width: 100%; height: auto; }
+.sci-fig figcaption { font-family: Inter, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 0.8em; color: var(--text-light); margin-top: 0.5em; }
+.sci-table-wrap { overflow-x: auto; margin: 1.2em 0 1.6em; }
+.sci-table { width: 100%; border-collapse: collapse; font-size: 0.85em; display: table; }
+.sci-table th, .sci-table td { padding: 0.6em 0.8em; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.sci-table thead th { background: var(--navy); color: var(--white); border-bottom: none; }
+.sci-table thead th:first-child { border-radius: 6px 0 0 0; }
+.sci-table thead th:last-child { border-radius: 0 6px 0 0; }
+.sci-table tbody th { color: var(--navy); font-weight: 600; width: 24%; }
+.sci-table tbody tr:nth-child(even) { background: var(--bg); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  background-color: var(--white);
+  color: var(--navy) !important;
+  border: 2px solid var(--navy) !important;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.btn:hover { background-color: var(--navy); color: var(--white) !important; }
+a.btn, .page__content a.btn { text-decoration: none !important; }
+.btn--info { background-color: var(--gold); border-color: var(--gold) !important; color: var(--navy) !important; }
+.btn--info:hover { background-color: #d9a52a; border-color: #d9a52a !important; color: var(--navy) !important; }
+.btn--inverse { background-color: var(--white); }
+
+/* ---------- Footer ---------- */
+.page__footer { background: var(--navy); color: rgba(255, 255, 255, 0.85); }
+.page__footer a { color: var(--white); }
+.page__footer a:hover { color: var(--gold); }
+.page__footer .fas, .page__footer .fab, .page__footer .far, .page__footer .fal, .page__footer .fa { color: var(--gold); }

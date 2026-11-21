@@ -1,0 +1,22 @@
+{%- comment -%}
+  Renders a list of publications from _data/publications.yml.
+  include.pubs    : the entries to show
+  include.by_year : true to put each year under its own heading
+{%- endcomment -%}
+{%- if include.by_year -%}
+{%- assign groups = include.pubs | group_by: "year" -%}
+{%- for g in groups %}
+<h4>{{ g.name }}</h4>
+<ul class="pub-list">
+{%- for p in g.items %}
+{% include pub-entry.html p=p %}
+{%- endfor %}
+</ul>
+{%- endfor -%}
+{%- else %}
+<ul class="pub-list">
+{%- for p in include.pubs %}
+{% include pub-entry.html p=p %}
+{%- endfor %}
+</ul>
+{%- endif -%}

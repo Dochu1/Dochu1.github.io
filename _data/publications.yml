@@ -1,0 +1,184 @@
+# Publications list, rendered on the home page and on /publications/.
+# Source: Google Scholar profile (user=6_olQZoAAAAJ), cross-checked against arXiv (hu_r_3) and DOIs.
+#
+# Fields
+#   title    : paper title
+#   authors  : author list as it should appear; "R. Hu" is highlighted automatically
+#   venue    : journal / book / series with volume, issue and pages
+#   year     : year used for grouping
+#   type     : article | preprint | chapter | proceedings | thesis | abstract
+#              ("abstract" entries are shown only on /publications/, not on the home page)
+#   arxiv    : arXiv identifier, e.g. 2501.16913 (optional)
+#   doi      : DOI without the https://doi.org/ prefix (optional)
+#   url      : any other link (optional)
+#   selected : true to list the paper under "Selected publications & preprints" on the home page
+#   tags     : optional list; "structure-preserving" entries are also listed on the Science page (Demos),
+#              "stochastic" entries under Further reading in the stochastic modelling introduction
+
+- title: "Rough variational principles and applications to adjoint systems"
+  selected: true
+  authors: "R. Hu and M. Leok"
+  venue: "Preprint"
+  year: 2026
+  type: preprint
+  arxiv: "2609.06337"
+  tags: [structure-preserving, stochastic]
+
+- title: "Surface wave solutions in 1D and 2D for the Broer–Kaup–Boussinesq–Kupershmidt (BKBK) system"
+  authors: "D. D. Holm, R. Hu and H. Wang"
+  venue: "Studies in Applied Mathematics, 156(1), e70165"
+  year: 2026
+  type: article
+  arxiv: "2510.02577"
+  doi: "10.1111/sapm.70165"
+
+- title: "Lagrangian averaging of singular stochastic actions for fluid dynamics"
+  authors: "T. Diamantakis and R. Hu"
+  venue: "Geometric Science of Information (GSI 2025), Lecture Notes in Computer Science 16034, 416–430"
+  year: 2025
+  type: proceedings
+  arxiv: "2504.10177"
+  doi: "10.1007/978-3-032-03921-7_43"
+  tags: [stochastic]
+
+
+- title: "A variational perspective on plasma dynamics in thin domains"
+  selected: true
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Nonlinearity, 38(9), 095015"
+  year: 2025
+  type: article
+  arxiv: "2501.19171"
+  doi: "10.1088/1361-6544/adffd8"
+
+- title: "Stochastic multisymplectic PDEs and their structure-preserving numerical methods"
+  selected: true
+  authors: "R. Hu and L. Peng"
+  venue: "Studies in Applied Mathematics, 155(3), e70112"
+  year: 2025
+  type: article
+  arxiv: "2501.16913"
+  doi: "10.1111/sapm.70112"
+  tags: [structure-preserving, stochastic]
+
+- title: "Compound Burgers–KdV soliton behaviour: refraction, reflection and fusion"
+  authors: "D. D. Holm, R. Hu, O. D. Street and H. Wang"
+  venue: "Preprint"
+  year: 2025
+  type: preprint
+  arxiv: "2505.17026"
+
+- title: "Geometric theory of perturbation dynamics around non-equilibrium fluid flows"
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Stochastic Transport in Upper Ocean Dynamics III (STUOD 2023), Mathematics of Planet Earth 13, Springer, 87–113"
+  year: 2025
+  type: chapter
+  arxiv: "2402.10040"
+  doi: "10.1007/978-3-031-70660-8_5"
+
+- title: "Collisions of Burgers bores with nonlinear waves"
+  authors: "A. Dombret, D. D. Holm, R. Hu, O. D. Street and H. Wang"
+  venue: "Stochastic Transport in Upper Ocean Dynamics III (STUOD 2023), Mathematics of Planet Earth 13, Springer, 25–43"
+  year: 2025
+  type: chapter
+  arxiv: "2405.08130"
+  doi: "10.1007/978-3-031-70660-8_2"
+
+- title: "Deterministic and stochastic geometric mechanics for Hall magnetohydrodynamics"
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Proceedings of the Royal Society A, 480(2300), 20240267"
+  year: 2024
+  type: article
+  arxiv: "2404.06528"
+  doi: "10.1098/rspa.2024.0267"
+  tags: [structure-preserving, stochastic]
+
+- title: "Variational closures for composite homogenised fluid flows"
+  selected: true
+  authors: "T. Diamantakis, R. Hu and J.-M. Leahy"
+  venue: "Preprint"
+  year: 2024
+  type: preprint
+  arxiv: "2409.10408"
+
+- title: "Geometric mechanics of the vertical slice model"
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Geometric Mechanics, 1(02), 77–121"
+  year: 2024
+  type: article
+  arxiv: "2309.02602"
+  doi: "10.1142/S2972458924500011"
+
+- title: "On the interactions between mean flows and inertial gravity waves in the WKB approximation"
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Stochastic Transport in Upper Ocean Dynamics II (STUOD 2022), Mathematics of Planet Earth, Springer"
+  year: 2024
+  type: chapter
+  arxiv: "2302.04838"
+  doi: "10.1007/978-3-031-40094-0_5"
+
+- title: "Geometric descriptions of the interacting dynamics between waves and currents"
+  authors: "O. D. Street, D. D. Holm and R. Hu"
+  venue: "AGU Ocean Sciences Meeting, PS14B-2006"
+  year: 2024
+  type: abstract
+
+- title: "Structural preserving stochastic modelling of submesoscale ocean dynamics"
+  authors: "R. Hu, D. D. Holm and O. D. Street"
+  venue: "AGU Ocean Sciences Meeting, PS34B-2095"
+  year: 2024
+  type: abstract
+
+- title: "Lagrangian reduction and wave mean flow interaction"
+  selected: true
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Physica D: Nonlinear Phenomena, 454, 133847"
+  year: 2023
+  type: article
+  arxiv: "2301.04121"
+  doi: "10.1016/j.physd.2023.133847"
+
+- title: "Stochastic geometric mechanics for geophysical fluid dynamics and wave–current interactions"
+  authors: "R. Hu"
+  venue: "PhD thesis, Imperial College London"
+  year: 2023
+  type: thesis
+  doi: "10.25560/109120"
+  tags: [stochastic]
+
+
+- title: "Coupling of waves to sea surface currents via horizontal density gradients"
+  authors: "D. D. Holm, R. Hu and O. D. Street"
+  venue: "Stochastic Transport in Upper Ocean Dynamics (STUOD 2021), Mathematics of Planet Earth 10, Springer, 109–133"
+  year: 2023
+  type: chapter
+  arxiv: "2202.04446"
+  doi: "10.1007/978-3-031-18988-3_8"
+
+- title: "Variational stochastic parameterisations and their applications to primitive equation models"
+  authors: "R. Hu and S. Patching"
+  venue: "Stochastic Transport in Upper Ocean Dynamics (STUOD 2021), Mathematics of Planet Earth 10, Springer, 135–158"
+  year: 2023
+  type: chapter
+  arxiv: "2202.04404"
+  doi: "10.1007/978-3-031-18988-3_9"
+  tags: [structure-preserving, stochastic]
+
+- title: "Nonlinear dispersion in wave–current interactions"
+  authors: "D. D. Holm and R. Hu"
+  venue: "Journal of Geometric Mechanics, 14(4), 597–633"
+  year: 2022
+  type: article
+  arxiv: "2108.05213"
+  doi: "10.3934/jgm.2022004"
+
+- title: "Stochastic effects of waves on currents in the ocean mixed layer"
+  selected: true
+  authors: "D. D. Holm and R. Hu"
+  venue: "Journal of Mathematical Physics, 62(7), 073102"
+  year: 2021
+  type: article
+  arxiv: "2011.12094"
+  doi: "10.1063/5.0045010"
+  tags: [stochastic]
+
