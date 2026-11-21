@@ -1,0 +1,148 @@
+---
+title: "Stochastic modelling of fluids"
+permalink: /science/stochastic-modelling/
+author_profile: true
+excerpt: "An introduction to stochastic modelling of fluids through geometric mechanics, following Holm & Hu, Stochastic effects of waves on currents in the ocean mixed layer (2021)."
+---
+<p><a href="{{ '/science/' | relative_url }}">&larr; Science</a></p>
+
+<p class="sci-lede">How do we add randomness to the equations of fluid motion without destroying the physics they encode?
+This page introduces the geometric approach to stochastic modelling that runs through my work, using
+<a href="https://doi.org/10.1063/5.0045010">Stochastic effects of waves on currents in the ocean mixed layer</a>
+(D. D. Holm and R. Hu, <em>J. Math. Phys.</em> 62, 073102, 2021; <a href="https://arxiv.org/abs/2011.12094">arXiv:2011.12094</a>) as a guide.</p>
+
+<h2>Why stochastic models?</h2>
+<p>Ocean and atmosphere models can only resolve motions down to the grid scale, yet the unresolved scales feed back on the resolved flow.
+In the ocean mixing layer, for example, surface gravity waves drive <em>Langmuir circulations</em>: pairs of counter-rotating vortex tubes aligned roughly with the wind.
+They entrain sediment and detritus into the mixed layer and affect how oil spills disperse.
+These waves are fast and small compared with the currents, so most models average over them. Averaging the stratified Euler equations over the wave period
+gives the Craik–Leibovich (CL) equations, in which the waves act on the current through the <em>Stokes drift</em> and a <em>vortex force</em>.</p>
+
+<p>Averaging, however, discards variability. A stochastic model keeps a statistical description of what has been averaged away:
+each solution is one plausible realisation, an ensemble of solutions quantifies uncertainty, and the ensemble can be compared with, and corrected by, observations through data assimilation.
+As Ed Lorenz put it, "climate is what you expect, weather is what you get." The modelling question is then:</p>
+
+<blockquote>What types of noise can be added to fluid dynamics while preserving energy conservation, Kelvin–Noether circulation dynamics,
+and the conservation laws that come from invariance under relabelling of Lagrangian fluid parcels?</blockquote>
+
+<h2>Geometry first: Hamilton's principle and circulation</h2>
+<p>Ideal fluid dynamics follows from Hamilton's principle \(\delta S = 0\) for an action \(S = \int \ell(u,a)\,dt\).
+The Lagrangian depends on the Eulerian velocity \(u\) and on <em>advected quantities</em> \(a\), such as buoyancy or mass density, which are carried along by the flow.
+The fluid Lagrangian is unchanged if we relabel the fluid parcels. Reduction by this symmetry gives the Euler–Poincaré equations</p>
+
+$$ \frac{d}{dt}\frac{\delta \ell}{\delta u} + \mathrm{ad}^*_u \frac{\delta \ell}{\delta u} - \frac{\delta \ell}{\delta a}\diamond a = 0, \qquad \frac{d}{dt}a + \mathcal{L}_u a = 0, $$
+
+<p>where \(\mathcal{L}_u\) is the Lie derivative along \(u\). Noether's theorem for the relabelling symmetry is the Kelvin–Noether circulation theorem.
+For the incompressible Euler equations it is Kelvin's theorem: the circulation \(\oint_{c(u)} \mathbf{u}\cdot d\mathbf{x}\) around any loop moving with the fluid is conserved.
+On the Hamiltonian side, the same equations are a Lie–Poisson system for the momentum \(m = \delta\ell/\delta u\) with Hamiltonian \(h(m)\).
+Energy and circulation are two faces of this single geometric structure, so any modification of the equations should be made inside it.</p>
+
+<h2>Two geometric ways to add noise</h2>
+
+<h3>Noise in the transport: SALT</h3>
+<p><em>Stochastic Advection by Lie Transport</em> (SALT), introduced by Holm in 2015, makes the Lagrangian paths of fluid parcels stochastic.
+The resolved drift velocity \(u\) is augmented by spatial noise modes \(\xi_k(\mathbf{x})\), which represent the effect of the unresolved scales:</p>
+
+$$ \mathrm{d}\mathbf{x}_t = \mathbf{u}(\mathbf{x}_t,t)\,dt + \sum_k \boldsymbol{\xi}_k(\mathbf{x}_t)\circ dW^k_t . $$
+
+<p>Everything is then transported along these paths: momentum, buoyancy and any other advected quantity.
+The noise is in Stratonovich form (\(\circ\,dW\)), so the ordinary chain and product rules hold and the variational derivation goes through unchanged.
+Kelvin's theorem survives on loops carried by the stochastic flow, and all the Casimirs (for example helicity in 3D or enstrophy in 2D) are conserved.
+The energy, however, is not conserved in general.</p>
+
+<figure class="sci-fig">
+  {% include salt-paths.svg %}
+  <figcaption>The same initial parcel \(x_0\) followed by the drift alone (navy) and by several realisations of the SALT paths (gold).
+    Each gold path is one plausible history of the parcel given the unresolved motion.</figcaption>
+</figure>
+
+<h3>Noise as a force: SFLT</h3>
+<p>In the paper we introduce a complementary construction, <em>Stochastic Forcing by Lie Transport</em> (SFLT).
+It starts from a stochastic version of the reduced Lagrange–d'Alembert–Pontryagin variational principle, in which noise enters as a prescribed stochastic force \(F_i\).
+This leads to the stochastically forced Lie–Poisson equation</p>
+
+$$ \mathrm{d}m + \mathrm{ad}^*_u m\,dt + \sum_i F_i \circ dW^i_t = 0, \qquad u = \frac{\delta h}{\delta m} . $$
+
+<p>The choice of \(F_i\) decides which conservation laws are kept. Choosing the force to be the Lie transport of prescribed one-form densities \(f_i\), that is \(F_i = \mathrm{ad}^*_u f_i\),
+gives an <strong>energy-preserving</strong> model:</p>
+
+$$ \mathrm{d}h = \Big\langle \mathrm{d}m, \frac{\delta h}{\delta m}\Big\rangle
+ = \Big\langle -\mathrm{ad}^*_u m\,dt - \sum_i \mathrm{ad}^*_u f_i\circ dW^i_t,\; u\Big\rangle = 0, $$
+
+<p>because \(\mathrm{ad}_u u = -[u,u] = 0\). In vector notation, for incompressible flow the stochastic term is</p>
+
+$$ \sum_i \Big( \mathbf{u}\times \mathrm{curl}\,\mathbf{f}_i - \nabla(\mathbf{u}\cdot\mathbf{f}_i) \Big)\circ dW^i_t , $$
+
+<p>a stochastic <strong>vortex force</strong> of exactly the Craik–Leibovich type, plus a stochastic pressure gradient.
+Because the model comes from a variational principle, it still has a Kelvin–Noether circulation theorem.
+A different choice, \(F_i = \mathrm{ad}^*_{\delta C/\delta m} f_i\), preserves a chosen Casimir \(C\) (helicity, for instance) instead of the energy.</p>
+
+<div class="sci-table-wrap">
+<table class="sci-table">
+  <thead><tr><th></th><th>SALT</th><th>SFLT (energy-preserving)</th></tr></thead>
+  <tbody>
+    <tr><th>Where the noise enters</th><td>Transport velocity: stochastic Lagrangian paths</td><td>Momentum equation: stochastic force \(\mathrm{ad}^*_u f_i\)</td></tr>
+    <tr><th>Kelvin circulation</th><td>Conserved on loops moving with the stochastic flow</td><td>Kelvin–Noether theorem, with circulation generated by the noise</td></tr>
+    <tr><th>Energy</th><td>Not conserved in general</td><td>Conserved for every realisation</td></tr>
+    <tr><th>Casimirs</th><td>All conserved</td><td>Not conserved in general</td></tr>
+    <tr><th>Can transport stochastic sources</th><td>Advected quantities move with the noisy flow</td><td>Yes, through stochastic sources \(a^k\) in the advection equations</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Waves and currents in the ocean mixed layer</h2>
+<p>Applying energy-preserving SFLT to the Euler–Boussinesq equations gives a stochastic extension of the Craik–Leibovich theory.
+Taking the first noise mode to be the steady Stokes drift, \(\mathbf{f}^0 = -\mathbf{u}^S(\mathbf{x})\) with \(dW^0_t = dt\), the equations become</p>
+
+$$ \begin{aligned}
+\mathrm{d}\mathbf{u} &= \mathbf{u}\times\mathrm{curl}\big(\mathbf{u} - \mathbf{u}^S(\mathbf{x}) + \mathbf{R}(\mathbf{x})\big)\,dt
+ - \nabla\Big(p + \tfrac12|\mathbf{u}|^2 + \mathbf{u}\cdot\mathbf{u}^S\Big)dt \\
+&\quad - gb\,\hat{\mathbf{z}}\,dt + \sum_{k>0}\Big(\mathbf{u}\times\mathrm{curl}\,\mathbf{f}^k - \nabla(\mathbf{u}\cdot\mathbf{f}^k)\Big)\circ dW^k_t ,
+\end{aligned} $$
+
+$$ \partial_t D + \mathrm{div}(D\mathbf{u}) = 0 \ \text{ with } D = 1, \qquad \partial_t b + \mathbf{u}\cdot\nabla b = 0 , $$
+
+<p>where \(b\) is the buoyancy, \(p\) the pressure and \(2\boldsymbol{\Omega} = \mathrm{curl}\,\mathbf{R}\) the Coriolis parameter.
+The result has a clear physical reading: the Stokes drift itself becomes a semimartingale,</p>
+
+$$ \mathrm{d}\mathbf{u}^S = \mathbf{u}^S(\mathbf{x})\,dt + \sum_k \mathbf{f}^k(\mathbf{x})\circ dW^k_t , $$
+
+<p>so <em>noise in the waves is passed on to the currents</em> through a stochastic vortex force, while the total energy is unchanged.
+The spatial modes \(\mathbf{f}^k\) are to be calibrated from data, for example from high-resolution simulations or observations.
+When the noise terms are dropped, the deterministic CL equations are recovered.</p>
+
+<p>In the full model, stochastic sources \(a^k\) can also be added to the buoyancy equation.
+They represent stochastic changes of material properties, such as the entrainment and detrainment of sediment, algae blooms, oil droplets or microplastics carried by Langmuir circulations.
+Circulation then obeys the stochastic Kelvin theorem</p>
+
+$$ \begin{aligned}
+\mathrm{d}\oint_{c(u)}(\mathbf{u}+\mathbf{R})\cdot d\mathbf{x}
+ &= \oint_{c(u)} gz\,\nabla b\cdot d\mathbf{x}\,dt \\
+ &\quad - \sum_k\oint_{c(u)}\Big((\mathrm{curl}\,\mathbf{f}^k)\times\mathbf{u} - gz\,\nabla a^k\Big)\cdot d\mathbf{x}\circ dW^k_t .
+\end{aligned} $$
+
+<p>The noise therefore <em>creates</em> circulation, locally and stochastically, which is how stochastic Langmuir circulations could arise.
+The potential vorticity \(q = (\boldsymbol{\omega} + 2\boldsymbol{\Omega})\cdot\nabla b\) obeys</p>
+
+$$ \mathrm{d}q + \mathbf{u}\cdot\nabla q\,dt = -\sum_k \mathrm{div}\,\mathbf{J}^k\circ dW^k_t , $$
+
+<p>a conservation law in flux form. Locally the stochastic "J-fluxes" redistribute potential vorticity, but with appropriate boundary conditions the total
+\(Q = \int_{\mathcal D} q\,dV\) is preserved.</p>
+
+<h2>Expectations and fluctuations</h2>
+<p>The paper also introduces an Eulerian-averaged version (EA SFLT), in which each solution is split into its expectation and a fluctuation.
+For quadratic Hamiltonians the expectation obeys a closed deterministic equation, and the energy of the expected flow decreases over time.
+That energy is transferred to the fluctuations, while the total energy stays exactly the same.
+This gives a conservative, geometric picture of how a mean flow loses energy to its variability, in the spirit of Lorenz's remark.</p>
+
+<h2>From models to computation</h2>
+<p>Stochastic models built this way inherit conservation laws and variational structure from their deterministic parents.
+Numerical methods should respect that structure too, otherwise the discretisation itself introduces spurious drift in energy, circulation or other invariants,
+which is indistinguishable from the physical noise we are trying to model.
+My later work develops structure-preserving discretisations for such models: stochastic multisymplectic integrators for stochastic PDEs, and
+symplectic methods for rough-path-driven adjoint systems used in sensitivity analysis and data assimilation.
+Both can be explored interactively in the <a href="{{ '/science/#demos' | relative_url }}">demos</a>.</p>
+
+<h2>Further reading</h2>
+{% assign reading = site.data.publications | where_exp: "p", "p.tags contains 'stochastic'" %}
+{% include pub-list.html pubs=reading %}
