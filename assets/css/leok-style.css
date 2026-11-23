@@ -89,7 +89,7 @@ strong, b { color: var(--navy); }
   color: var(--navy);
   font-weight: 700;
   letter-spacing: -0.01em;
-  display: inline-block;
+  display: table; /* shrink to the text like inline-block, but on its own line */
   padding-bottom: 5px;
   border-bottom: 3px solid var(--gold);
   margin-bottom: 0.6em;
@@ -118,7 +118,7 @@ strong, b { color: var(--navy); }
 .page__content h2, .archive h2 {
   color: var(--navy);
   font-weight: 700;
-  display: inline-block;
+  display: table; /* shrink to the text like inline-block, but on its own line */
   padding-bottom: 5px;
   border-bottom: 3px solid var(--gold);
   margin-top: 1.6em;

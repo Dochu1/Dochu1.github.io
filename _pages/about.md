@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am a **Stefan E. Warschawski (S.E.W) Visiting Assistant Professor** in the department of Mathematics at the University of California San Diego. I am also affiliated with Imperial College London as a Visiting Researcher.
+I am a **Stefan E. Warschawski (S.E.W) Visiting Assistant Professor** in the Department of Mathematics at the University of California San Diego. I am also affiliated with Imperial College London as a Visiting Researcher.
 
 Previously, I was a research associate in the department of Mathematics at Imperial College London working on the **Stochastic Parameterization of Ocean Turbulence for Observational Networks** (SPOT-ON) project.
 

@@ -1,4 +1,13 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
+<script>
+  // The greedy menu measures itself once, often before web fonts and styles have loaded,
+  // and only restores one hidden link per resize. Re-run it until it settles once loaded.
+  (function () {
+    function settle() { if (typeof updateNav === 'function') for (var i = 0; i < 10; i++) updateNav(); }
+    window.addEventListener('load', settle);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+  })();
+</script>
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}

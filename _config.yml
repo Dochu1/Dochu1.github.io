@@ -10,7 +10,7 @@ locale                   : "en-UK"
 title                    : "Ruiao Hu"
 title_separator          : "-"
 name                     : &name "Ruiao Hu"
-description              : &description "Visiting Assistant Professor at department of mathematics, UCSD"
+description              : &description "Visiting Assistant Professor, Department of Mathematics, UCSD"
 url                      : https://dochu1.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "dochu1.github.io"
@@ -79,7 +79,7 @@ analytics:
 author:
   name             : "Ruiao Hu"
   avatar           : "profile.png"
-  bio              : "Visiting Assistant Professor at department of mathematics, UCSD"
+  bio              : "Visiting Assistant Professor, Department of Mathematics, UCSD"
   location         : "San Diego, USA & London, UK"
   employer         :
   pubmed           : 
