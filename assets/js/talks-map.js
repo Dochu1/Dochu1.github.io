@@ -30,26 +30,39 @@
   var maxCountry = d3.max(Object.keys(countries), function (k) { return countries[k].talks.length; });
   var maxCity = d3.max(cities, function (c) { return c.talks.length; });
 
-  // colours follow the site's theme variables, so the map matches either colour scheme:
-  // one hue, light to dark, from the light accent through the accent towards the heading ink
-  var css = getComputedStyle(document.documentElement);
-  function v(name, fallback) { return (css.getPropertyValue(name) || '').trim() || fallback; }
-  var accent = v('--gold', '#C69214'), accentLight = v('--gold-light', '#F3E3B8'), ink = v('--navy', '#182B49');
-  var ramp = d3.piecewise(d3.interpolateLab, [accentLight, accent, ink]);
-  function fill(n) { return ramp(maxCountry > 1 ? 0.22 + 0.5 * (n - 1) / (maxCountry - 1) : 0.5); }
-  var LAND = '#E4E8EE';
-
+  // colours follow the site's theme variables, so the map matches the colour scheme and the
+  // light/dark mode. One hue for the number of talks: on light, light accent -> accent -> navy;
+  // on dark, dim accent -> accent -> light accent (more talks always stand out more).
+  var ramp, rampLo, rampHi, LAND, DOT;
   function plural(n) { return n + ' talk' + (n === 1 ? '' : 's'); }
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-
-  // legend: one swatch per count, and the dot meaning
-  var legend = document.getElementById('talks-map-legend');
-  if (legend) {
-    var html = '';
-    for (var n = 1; n <= maxCountry; n++) html += '<span><i style="background:' + fill(n) + '"></i>' + plural(n) + '</span>';
-    html += '<span><i class="dot" style="background:' + ink + '"></i>city</span>';
-    legend.innerHTML = html;
+  function fill(n) { return ramp(maxCountry > 1 ? rampLo + (rampHi - rampLo) * (n - 1) / (maxCountry - 1) : (rampLo + rampHi) / 2); }
+  function setColours() {
+    var css = getComputedStyle(document.documentElement);
+    var v = function (name, fallback) { return (css.getPropertyValue(name) || '').trim() || fallback; };
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var accent = v('--gold', '#C69214'), accentLight = v('--gold-light', '#F3E3B8'), navy = v('--navy', '#182B49');
+    if (dark) {
+      ramp = d3.piecewise(d3.interpolateLab, [d3.interpolateLab(v('--panel', '#121A25'), accent)(0.4), accent, accentLight]);
+      rampLo = 0.2; rampHi = 0.85;
+      DOT = v('--ink', '#E8EEF6');
+    } else {
+      ramp = d3.piecewise(d3.interpolateLab, [accentLight, accent, navy]);
+      rampLo = 0.22; rampHi = 0.72;
+      DOT = navy;
+    }
+    LAND = v('--map-land', '#E4E8EE');
+    // legend: one swatch per count, and the dot meaning
+    var legend = document.getElementById('talks-map-legend');
+    if (legend) {
+      var html = '';
+      for (var n = 1; n <= maxCountry; n++) html += '<span><i style="background:' + fill(n) + '"></i>' + plural(n) + '</span>';
+      html += '<span><i class="dot" style="background:' + DOT + '"></i>city</span>';
+      legend.innerHTML = html;
+    }
   }
+  setColours();
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   function makePanel(host, opts) {
     var tip = document.createElement('div');
@@ -96,7 +109,7 @@
           .attr('class', 'city')
           .attr('transform', function (c) { return 'translate(' + projection([c.lon, c.lat]) + ')'; })
           .attr('r', function (c) { return r(c.talks.length); })
-          .attr('fill', ink)
+          .attr('fill', DOT)
           .on('pointermove', function (evt, c) { showTip(evt, c.city + ', ' + c.country + ': ' + plural(c.talks.length), c.talks); })
           .on('pointerleave', hideTip);
 
@@ -158,6 +171,11 @@
   window.addEventListener('resize', function () {
     if (worldHost.clientWidth === last) return;
     last = worldHost.clientWidth;
+    panels.forEach(function (p) { p[0].draw(p[1]); });
+  });
+  // light/dark switch: recolour and redraw
+  window.addEventListener('themechange', function () {
+    setColours();
     panels.forEach(function (p) { p[0].draw(p[1]); });
   });
 })();

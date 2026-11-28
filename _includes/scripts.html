@@ -10,5 +10,23 @@
   })();
 </script>
 
+<script>
+  // Colour mode switch in the top bar: cycles Auto (system) -> Light -> Dark.
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn || !window.siteTheme) return;
+    var NEXT = { auto: 'light', light: 'dark', dark: 'auto' };
+    var NAME = { auto: 'Auto (follows your system)', light: 'Light', dark: 'Dark' };
+    function label() {
+      var p = siteTheme.pref(), text = 'Colour mode: ' + NAME[p] + '. Click for ' + NAME[NEXT[p]].replace(/ \(.*\)/, '') + '.';
+      btn.setAttribute('aria-label', text);
+      btn.title = text;
+    }
+    btn.addEventListener('click', function () { siteTheme.set(NEXT[siteTheme.pref()]); label(); });
+    window.addEventListener('themechange', label);
+    label();
+  })();
+</script>
+
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}

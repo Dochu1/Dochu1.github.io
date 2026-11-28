@@ -299,7 +299,10 @@
   var views = {};
   var off = document.createElement('canvas'); off.width = N; off.height = ROWS;
   var offCtx = off.getContext('2d'), img = offCtx.createImageData(N, ROWS);
-  var STOPS = [[255, 255, 255], [243, 227, 184], [198, 146, 20], [24, 43, 73]];
+  // |u| colour map: zero blends into the plot background, large amplitude stands out from it
+  var STOPS_LIGHT = [[255, 255, 255], [243, 227, 184], [198, 146, 20], [24, 43, 73]];
+  var STOPS_DARK = [[23, 33, 46], [104, 76, 18], [198, 146, 20], [246, 232, 196]];
+  var STOPS = STOPS_LIGHT;
   function cmap(v) {
     v = Math.max(0, Math.min(1, v)) * (STOPS.length - 1);
     var i = Math.min(Math.floor(v), STOPS.length - 2), f = v - i, a = STOPS[i], b = STOPS[i + 1];
@@ -312,7 +315,8 @@
   }
 
   function drawSpaceTime(m) {
-    var v = views[m.key], ctx = v.ctx, s = state.methods[m.key], data = img.data;
+    var v = views[m.key], ctx = v.ctx, s = state.methods[m.key], data = img.data, P = D.ink();
+    STOPS = D.isDark() ? STOPS_DARK : STOPS_LIGHT;
     for (var r = 0; r < ROWS; r++) {
       var row = s.rows[s.rows.length - ROWS + r];
       for (var j = 0; j < N; j++) {
@@ -327,7 +331,7 @@
     ctx.font = '600 12px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
     var label = m.name + (s.dead ? ' — blew up' : '');
     var w = ctx.measureText(label).width;
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.fillStyle = P.label;
     ctx.fillRect(6, 6, w + 12, 20);
     ctx.fillStyle = m.color === D.colors.sp ? D.colors.navy : m.color;
     ctx.fillText(label, 12, 20);

@@ -2,6 +2,41 @@
 
 <!-- start custom head snippets -->
 
+<script>
+  // Colour mode: "auto" follows the browser/system setting; "light" or "dark" is the visitor's choice,
+  // kept in localStorage. Runs before the page is drawn, so there is no flash of the wrong mode.
+  // Other scripts can listen for the "themechange" event on window.
+  (function () {
+    var root = document.documentElement, pref = 'auto';
+    try { var saved = localStorage.getItem('theme'); if (saved === 'light' || saved === 'dark') pref = saved; } catch (e) {}
+    var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    function apply() {
+      var mode = pref === 'auto' ? (mq && mq.matches ? 'dark' : 'light') : pref;
+      root.setAttribute('data-theme', mode);
+      root.setAttribute('data-theme-pref', pref);
+    }
+    function changed() { apply(); try { window.dispatchEvent(new Event('themechange')); } catch (e) {} }
+    apply();
+    if (mq) {
+      // follow system changes while in Auto; also re-check when the tab is shown again
+      var onSystem = function () {
+        if (pref === 'auto' && root.getAttribute('data-theme') !== (mq.matches ? 'dark' : 'light')) changed();
+      };
+      if (mq.addEventListener) mq.addEventListener('change', onSystem); else if (mq.addListener) mq.addListener(onSystem);
+      document.addEventListener('visibilitychange', onSystem);
+    }
+    window.siteTheme = {
+      pref: function () { return pref; },
+      mode: function () { return root.getAttribute('data-theme'); },
+      set: function (p) {
+        pref = p === 'light' || p === 'dark' ? p : 'auto';
+        try { if (pref === 'auto') localStorage.removeItem('theme'); else localStorage.setItem('theme', pref); } catch (e) {}
+        changed();
+      }
+    };
+  })();
+</script>
+
 <meta name="theme-color" content="{% if site.color_scheme == "imperial" %}#003E74{% else %}#182B49{% endif %}">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 

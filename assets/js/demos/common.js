@@ -63,7 +63,7 @@
   };
   TimePlot.prototype.setSeries = function (series) { this.series = series; };
   TimePlot.prototype.draw = function () {
-    var ctx = this.ctx, W = this.w, H = this.h, o = this.opts;
+    var ctx = this.ctx, W = this.w, H = this.h, o = this.opts, P = ink();
     var log = !!o.log;
     var padL = 46, padR = o.endLabels ? 52 : 10, padB = 22;
     // legend row(s) for named series, laid out under the title so they never cover the curves
@@ -81,7 +81,7 @@
     }
     var padT = legendY - 8 + 14 * legendRows.length + (legendRows.length ? 6 : 0);
     ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = P.bg;
     ctx.fillRect(0, 0, W, H);
 
     var tmax = 1e-9, ymin = Infinity, ymax = -Infinity;
@@ -106,8 +106,8 @@
 
     // grid + labels
     ctx.font = '11px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
-    ctx.fillStyle = '#666666';
-    ctx.strokeStyle = '#EAEAEA';
+    ctx.fillStyle = P.axis;
+    ctx.strokeStyle = P.grid;
     ctx.lineWidth = 1;
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
@@ -130,11 +130,11 @@
 
     // title
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#182B49';
+    ctx.fillStyle = P.title;
     ctx.font = '600 12px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
     ctx.fillText(o.title || '', padL, 15);
     if (o.subtitle) {
-      ctx.fillStyle = '#666666';
+      ctx.fillStyle = P.axis;
       ctx.font = '11px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
       ctx.fillText(o.subtitle, padL, 29);
     }
@@ -143,10 +143,10 @@
     ctx.font = '10px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
     (o.refLines || []).forEach(function (r) {
       var yy = Y(tr(r.y));
-      ctx.strokeStyle = '#9aa3ad'; ctx.setLineDash([4, 3]);
+      ctx.strokeStyle = P.ref; ctx.setLineDash([4, 3]);
       ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(W - padR, yy); ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#9aa3ad'; ctx.textAlign = 'left';
+      ctx.fillStyle = P.ref; ctx.textAlign = 'left';
       ctx.fillText(r.label, padL + 4, yy - 3);
     });
 
@@ -191,11 +191,20 @@
       var yy = legendY + 14 * ri;
       row.forEach(function (it) {
         ctx.fillStyle = it.s.color; ctx.fillRect(it.x, yy - 2, 12, 4);
-        ctx.fillStyle = '#333333'; ctx.fillText(it.s.name, it.x + 17, yy);
+        ctx.fillStyle = P.text; ctx.fillText(it.s.name, it.x + 17, yy);
       });
     });
     ctx.textBaseline = 'alphabetic';
   };
+
+  // Plot colours for the current colour mode (see _includes/head/custom.html); read on every draw,
+  // so the plots follow the light/dark switch without a reload.
+  var PALETTES = {
+    light: { bg: '#ffffff', grid: '#EAEAEA', axis: '#666666', title: '#182B49', text: '#333333', ref: '#9aa3ad', navy: '#182B49', muted: '#999999', label: 'rgba(255,255,255,0.85)' },
+    dark: { bg: '#17212E', grid: '#2A3646', axis: '#9AA7B6', title: '#E8EEF6', text: '#D5DCE5', ref: '#6F7C8C', navy: '#C9D6E8', muted: '#7D8896', label: 'rgba(23,33,46,0.85)' }
+  };
+  function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+  function ink() { return PALETTES[isDark() ? 'dark' : 'light']; }
 
   // Keep a series bounded in length by thinning every other point.
   function pushThinned(arr, point, maxLen) {
@@ -224,6 +233,10 @@
     TimePlot: TimePlot,
     pushThinned: pushThinned,
     bindRange: bindRange,
-    colors: { sp: '#C69214', other: '#D1495B', grey: '#666666', truth: '#2BB673', navy: '#182B49' }
+    ink: ink,
+    isDark: isDark,
+    colors: { sp: '#C69214', other: '#D1495B', grey: '#666666', truth: '#2BB673' }
   };
+  // dark series colour (observations, driving path): navy on light, pale slate on dark
+  Object.defineProperty(global.Demo.colors, 'navy', { get: function () { return ink().navy; }, enumerable: true });
 })(window);

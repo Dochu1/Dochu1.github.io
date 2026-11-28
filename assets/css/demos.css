@@ -1,15 +1,15 @@
-/* Styles for the interactive demos, in the site's navy-and-gold palette. */
+/* Styles for the interactive demos; colours come from the site's theme variables (leok-style.css). */
 
 .sim-stage canvas {
   display: block;
   width: 100%;
-  border: 1px solid #EAEAEA;
+  border: 1px solid var(--line);
   border-radius: 6px;
-  background: #fff;
+  background: var(--surface);
   touch-action: none;
 }
 .sim-stage canvas + canvas { margin-top: 0.6em; }
-.sim-caption { font-size: 0.75em; color: #666; margin: 0.3em 0 0.8em; }
+.sim-caption { font-size: 0.75em; color: var(--text-light); margin: 0.3em 0 0.8em; }
 
 .sim-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6em; margin-top: 0.6em; }
 .sim-panels canvas { margin-top: 0 !important; }
@@ -22,15 +22,15 @@
   gap: 0.6em 1.2em;
   margin: 1em 0;
   padding: 1em 1.2em;
-  background: #F7F9FC;
-  border: 1px solid #EAEAEA;
+  background: var(--bg);
+  border: 1px solid var(--line);
   border-radius: 8px;
   font-size: 0.8em;
 }
-.sim-controls label { display: flex; justify-content: space-between; font-weight: 600; color: #182B49; margin-bottom: 0.2em; }
-.sim-controls output { font-weight: 400; color: #666; font-variant-numeric: tabular-nums; }
-.sim-controls input[type="range"] { width: 100%; accent-color: #C69214; }
-.sim-controls select { width: 100%; font: inherit; padding: 0.3em; border: 1px solid #EAEAEA; border-radius: 6px; background: #fff; }
+.sim-controls label { display: flex; justify-content: space-between; font-weight: 600; color: var(--ink); margin-bottom: 0.2em; }
+.sim-controls output { font-weight: 400; color: var(--text-light); font-variant-numeric: tabular-nums; }
+.sim-controls input[type="range"] { width: 100%; accent-color: var(--gold); }
+.sim-controls select { width: 100%; font: inherit; padding: 0.3em; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--text); }
 .sim-controls .check { justify-content: flex-start; gap: 0.5em; font-weight: 400; }
 .sim-buttons { display: flex; gap: 0.5em; align-items: end; flex-wrap: wrap; }
 .sim-buttons button { font: inherit; }
@@ -41,5 +41,5 @@
 .legend li::marker { content: ''; }
 .legend i { width: 18px; height: 4px; border-radius: 2px; display: inline-block; }
 
-.readout { font-size: 0.75em; color: #666; font-variant-numeric: tabular-nums; line-height: 1.6; }
-.readout b { color: #182B49; }
+.readout { font-size: 0.75em; color: var(--text-light); font-variant-numeric: tabular-nums; line-height: 1.6; }
+.readout b { color: var(--ink); }

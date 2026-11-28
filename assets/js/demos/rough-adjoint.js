@@ -238,13 +238,13 @@
   }
 
   function drawPhase() {
-    var ctx = pv.ctx, W = pv.w, Hh = pv.h;
+    var ctx = pv.ctx, W = pv.w, Hh = pv.h, P = D.ink();
     var items = [
       { c: SCHEMES.rsprk.color, t: 'Symplectic: RSPRK fit', k: 'line' },
       { c: SCHEMES.heun.color, t: 'Not symplectic: Heun / Heun fit', k: 'line' },
       { c: D.colors.truth, t: 'true trajectory, true x₀ (×)', k: 'dash' },
       { c: D.colors.navy, t: 'observations', k: 'dot' },
-      { c: '#999999', t: 'descent path of x₀', k: 'dots' }
+      { c: P.muted, t: 'descent path of x₀', k: 'dots' }
     ];
     ctx.font = '600 10px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
     var rows = [], row = [], lx = 40;
@@ -257,12 +257,12 @@
     var LH = 14 * rows.length + 8;
     var stripH = Math.round(Hh * 0.2), PH = Hh - stripH - 8;
     ctx.clearRect(0, 0, W, Hh);
-    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, Hh);
+    ctx.fillStyle = P.bg; ctx.fillRect(0, 0, W, Hh);
     var b = bounds();
     var X = function (q) { return 40 + (W - 50) * (q - b[0]) / (b[1] - b[0]); };
     var Y = function (p) { return LH + 10 + (PH - LH - 20) * (1 - (p - b[2]) / (b[3] - b[2])); };
-    ctx.strokeStyle = '#EAEAEA'; ctx.strokeRect(40, LH + 10, W - 50, PH - LH - 20);
-    ctx.fillStyle = '#666666'; ctx.font = '11px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
+    ctx.strokeStyle = P.grid; ctx.strokeRect(40, LH + 10, W - 50, PH - LH - 20);
+    ctx.fillStyle = P.axis; ctx.font = '11px Inter, -apple-system, "Segoe UI", Roboto, sans-serif';
     ctx.fillText('q (angle)', W - 62, PH - 14); ctx.save(); ctx.translate(14, (PH + LH) / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillText('p (momentum)', 0, 0); ctx.restore();
 
     var line = function (pts, color, width, dash) {
@@ -287,14 +287,14 @@
 
     // driving path strip
     var top = PH, zmin = Math.min.apply(null, state.Z), zmax = Math.max.apply(null, state.Z);
-    ctx.strokeStyle = '#EAEAEA'; ctx.strokeRect(40, top, W - 50, stripH);
+    ctx.strokeStyle = P.grid; ctx.strokeRect(40, top, W - 50, stripH);
     ctx.strokeStyle = D.colors.navy; ctx.lineWidth = 1.2; ctx.beginPath();
     state.Z.forEach(function (z, i) {
       var px = 40 + (W - 50) * i / state.N, py = top + 4 + (stripH - 8) * (1 - (z - zmin) / ((zmax - zmin) || 1));
       if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
     });
     ctx.stroke();
-    ctx.fillStyle = '#666666';
+    ctx.fillStyle = P.axis;
     ctx.fillText('driving path Z(t), fBm with H = ' + state.H.toFixed(2), 46, top + 14);
 
     // legend band above the phase plane
@@ -309,7 +309,7 @@
           ctx.setLineDash(it.k === 'dash' ? [5, 4] : it.k === 'dots' ? [2, 3] : []);
           ctx.beginPath(); ctx.moveTo(x0, yy); ctx.lineTo(x0 + 18, yy); ctx.stroke(); ctx.setLineDash([]);
         }
-        ctx.fillStyle = '#333333'; ctx.fillText(it.t, x0 + 24, yy);
+        ctx.fillStyle = P.text; ctx.fillText(it.t, x0 + 24, yy);
       });
     });
     ctx.textBaseline = 'alphabetic'; ctx.lineWidth = 1;
