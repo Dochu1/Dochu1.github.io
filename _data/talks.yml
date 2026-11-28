@@ -1,0 +1,184 @@
+# Selected talks, newest first. Drives the list and the world map on the Talks page (_pages/talks.md).
+# country: display name, one of those in assets/js/talks-map.js (ATLAS_NAMES) or a Natural Earth country name.
+# lat/lon: where the talk was given (used for the map markers).
+
+- event: "CCOM Seminar"
+  kind: invited talk
+  venue: "University of California San Diego"
+  city: "San Diego"
+  country: "United States"
+  lat: 32.88
+  lon: -117.24
+  date: "Oct 2026"
+  year: 2026
+
+- event: "British Applied Mathematics Colloquium (BAMC) 2026"
+  kind: contributed talk
+  venue: "University of East Anglia"
+  city: "Norwich"
+  country: "United Kingdom"
+  lat: 52.62
+  lon: 1.24
+  date: "Mar 2026"
+  year: 2026
+
+- event: "International Conference on Geometric Science of Information (GSI) 2025"
+  kind: contributed talk
+  venue: "Saint-Malo"
+  city: "Saint-Malo"
+  country: "France"
+  lat: 48.65
+  lon: -2.03
+  date: "Oct 2025"
+  year: 2025
+
+- event: "STUOD Annual Meeting 2025"
+  kind: invited talk
+  venue: "University of Edinburgh"
+  city: "Edinburgh"
+  country: "United Kingdom"
+  lat: 55.95
+  lon: -3.19
+  date: "Sep 2025"
+  year: 2025
+
+- event: "AFOSR Annual Review 2025"
+  kind: invited talk
+  venue: "Washington DC"
+  city: "Washington DC"
+  country: "United States"
+  lat: 38.90
+  lon: -77.04
+  date: "Sep 2025"
+  year: 2025
+
+- event: "International Workshop on Applied Geometry and Related Topics"
+  kind: invited talk
+  venue: "Keio University"
+  city: "Yokohama"
+  country: "Japan"
+  lat: 35.56
+  lon: 139.65
+  date: "Jul 2025"
+  year: 2025
+
+- event: "Oberwolfach Workshop: Mathematical Advances in Geophysical Fluid Dynamics"
+  kind: contributed talk
+  venue: "Oberwolfach Research Institute for Mathematics"
+  city: "Oberwolfach"
+  country: "Germany"
+  lat: 48.33
+  lon: 8.22
+  date: "May 2025"
+  year: 2025
+
+- event: "Keio Applied Mathematics Colloquium"
+  kind: invited talk
+  venue: "Keio University"
+  city: "Yokohama"
+  country: "Japan"
+  lat: 35.56
+  lon: 139.65
+  date: "Dec 2024"
+  year: 2024
+
+- event: "STUOD Annual Meeting 2024"
+  kind: invited talk
+  venue: "Inria Rennes"
+  city: "Rennes"
+  country: "France"
+  lat: 48.11
+  lon: -1.68
+  online: true
+  date: "Sep 2024"
+  year: 2024
+
+- event: "International Conference on Water Waves and Bores"
+  kind: invited talk
+  venue: "Ningbo University"
+  city: "Ningbo"
+  country: "China"
+  lat: 29.87
+  lon: 121.55
+  date: "Sep 2024"
+  year: 2024
+
+- event: "AFOSR Annual Review 2024"
+  kind: invited talk
+  venue: "Washington DC"
+  city: "Washington DC"
+  country: "United States"
+  lat: 38.90
+  lon: -77.04
+  date: "Aug 2024"
+  year: 2024
+
+- event: "Dynamics Days Europe 2024"
+  kind: contributed talk
+  venue: "Constructor University Bremen"
+  city: "Bremen"
+  country: "Germany"
+  lat: 53.17
+  lon: 8.65
+  date: "Jul 2024"
+  year: 2024
+
+- event: "Colloque International de Théories Variationnelles"
+  kind: contributed talk
+  venue: "Bastia"
+  city: "Bastia"
+  country: "France"
+  lat: 42.70
+  lon: 9.45
+  date: "Apr 2024"
+  year: 2024
+
+- event: "STUOD Annual Meeting 2023"
+  kind: invited talk
+  venue: "Ifremer, Brest"
+  city: "Brest"
+  country: "France"
+  lat: 48.39
+  lon: -4.49
+  date: "Sep 2023"
+  year: 2023
+
+- event: "SPRESTO Workshop"
+  kind: invited talk
+  venue: "University of Twente"
+  city: "Enschede"
+  country: "Netherlands"
+  lat: 52.24
+  lon: 6.85
+  date: "May 2023"
+  year: 2023
+
+- event: "Oberwolfach Workshop: Stochastic Fluid Dynamics"
+  kind: invited talk
+  venue: "Oberwolfach Research Institute for Mathematics"
+  city: "Oberwolfach"
+  country: "Germany"
+  lat: 48.33
+  lon: 8.22
+  date: "Oct 2022"
+  year: 2022
+
+- event: "Institute of Natural Sciences Colloquium"
+  kind: invited talk
+  venue: "Shanghai Jiao Tong University"
+  city: "Shanghai"
+  country: "China"
+  lat: 31.03
+  lon: 121.44
+  date: "Oct 2021"
+  year: 2021
+
+- event: "STUOD Annual Meeting 2021"
+  kind: invited talk
+  venue: "Imperial College London"
+  city: "London"
+  country: "United Kingdom"
+  lat: 51.50
+  lon: -0.18
+  date: "Sep 2021"
+  year: 2021
