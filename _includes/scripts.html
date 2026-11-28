@@ -1,7 +1,7 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 <script>
-  // The greedy menu measures itself once, often before web fonts and styles have loaded,
-  // and only restores one hidden link per resize. Re-run it until it settles on load and resize.
+  /* The greedy menu measures itself once, often before web fonts and styles have loaded,
+     and only restores one hidden link per resize. Re-run it until it settles on load and resize. */
   (function () {
     function settle() { if (typeof updateNav === 'function') for (var i = 0; i < 10; i++) updateNav(); }
     window.addEventListener('load', settle);
@@ -11,7 +11,7 @@
 </script>
 
 <script>
-  // Colour mode switch in the top bar: cycles Auto (system) -> Light -> Dark.
+  /* Colour mode switch in the top bar: cycles Auto (system) -> Light -> Dark. */
   (function () {
     var btn = document.getElementById('theme-toggle');
     if (!btn || !window.siteTheme) return;

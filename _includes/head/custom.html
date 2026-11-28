@@ -3,9 +3,9 @@
 <!-- start custom head snippets -->
 
 <script>
-  // Colour mode: "auto" follows the browser/system setting; "light" or "dark" is the visitor's choice,
-  // kept in localStorage. Runs before the page is drawn, so there is no flash of the wrong mode.
-  // Other scripts can listen for the "themechange" event on window.
+  /* Colour mode: "auto" follows the browser/system setting; "light" or "dark" is the visitor's choice,
+     kept in localStorage. Runs before the page is drawn, so there is no flash of the wrong mode.
+     Other scripts can listen for the "themechange" event on window. */
   (function () {
     var root = document.documentElement, pref = 'auto';
     try { var saved = localStorage.getItem('theme'); if (saved === 'light' || saved === 'dark') pref = saved; } catch (e) {}
@@ -18,7 +18,7 @@
     function changed() { apply(); try { window.dispatchEvent(new Event('themechange')); } catch (e) {} }
     apply();
     if (mq) {
-      // follow system changes while in Auto; also re-check when the tab is shown again
+      /* follow system changes while in Auto; also re-check when the tab is shown again */
       var onSystem = function () {
         if (pref === 'auto' && root.getAttribute('data-theme') !== (mq.matches ? 'dark' : 'light')) changed();
       };
