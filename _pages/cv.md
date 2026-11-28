@@ -9,27 +9,31 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* 2019 -- 2023 
-  * **Ph.D** in Applied Mathematics and Mathematical Physics, Imperial College London.
-
-* 2015 -- 2019
-  * **MEng** in Joint Mathematics and Computer Science, Imperial College London, 
-
-
-Professional Employments
-======
-* Current: Visiting Assistant Professor
+Academic Employment
+------
+{: .plain-heading}
+* Current: Stefan E. Warschawski Visiting Assistant Professor
   * Department of Mathematics, University of California San Diego, US
 
 * 2023 -- 2026: Research Associate
   * Department of Mathematics, Imperial College London, UK
 
-* Summer 2019: Research Resident 
+Education
+------
+{: .plain-heading}
+* 2019 -- 2023
+  * **PhD** in Applied Mathematics and Mathematical Physics, Imperial College London, UK
+
+* 2015 -- 2019
+  * **MEng** in Joint Mathematics and Computer Science, Imperial College London, UK
+
+Professional Employment
+------
+{: .plain-heading}
+* Summer 2019: Research Resident
   * Cervest Ltd., UK
 
-* Summer 2018: Software Engineering Summer Placement 
+* Summer 2018: Software Engineering Summer Placement
   * Bloomberg L.P., UK
 
 * Summer 2017: Summer Technology Analyst

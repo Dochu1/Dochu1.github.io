@@ -46,6 +46,7 @@ The full list is on the [publications page](/publications/), and also on [Google
 
 Contact
 ------
+<div class="contact-info" markdown="1">
 {% if site.author.email %}**Email:** [{{ site.author.email }}](mailto:{{ site.author.email }})
 {% endif %}
 **Mailing address:**  
@@ -53,3 +54,4 @@ Department of Mathematics
 University of California San Diego  
 9500 Gilman Drive  
 La Jolla, CA 92093, USA
+</div>
