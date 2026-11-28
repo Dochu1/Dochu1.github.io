@@ -4,41 +4,42 @@ permalink: /science/
 author_profile: true
 excerpt: "Stochastic modelling of fluids through geometric mechanics, and interactive demonstrations of structure-preserving numerical methods."
 ---
-<p>My research combines geometric mechanics with stochastic analysis to build fluid models that keep their physical structure when noise is added,
-and numerical methods that keep that structure when the models are discretised.
-This page collects introductions to the modelling and interactive demonstrations of the numerics.</p>
+<p>When modelling geophysical fluid flows, one inevitably encounters motions which cannot be resolved, yet which feed back on the resolved dynamics.
+We introduce stochasticity into fluid models through variational principles, so that the resulting models retain the conservation laws and circulation dynamics of their deterministic counterparts.
+We then construct numerical methods which preserve the same structure at the discrete level.</p>
 
 <h2 id="modelling">Modelling</h2>
 <div class="box-grid one">
   <div class="box-item">
     <h3>Stochastic modelling of fluids</h3>
-    <p>Why we add noise to fluid models, and how to do it without destroying their geometry.
-      It covers stochastic advection by Lie transport (SALT) and stochastic forcing by Lie transport (SFLT),
-      the circulation and energy each one keeps, and how this leads to stochastic wave effects on ocean currents.</p>
+    <p>The effects of unresolved scales motivate stochastic fluid models, and Hamilton's principle shows how noise may be introduced without destroying their geometric structure.
+      Stochastic advection by Lie transport (SALT) preserves Kelvin circulation and the Casimirs, whilst stochastic forcing by Lie transport (SFLT) preserves energy.
+      Applied to the Craik–Leibovich equations, SFLT yields a stochastic vortex force through which the noise in the waves feeds into the ocean currents.</p>
     <p><a href="{{ '/science/stochastic-modelling/' | relative_url }}" class="btn btn--info">Read the introduction</a></p>
   </div>
 </div>
 
 <h2 id="demos">Demos</h2>
-<p>Interactive demonstrations of structure-preserving numerical methods for stochastic and rough dynamical systems.
-They run live in your browser. Each one integrates the same noise or driving path with a structure-preserving scheme and a standard alternative,
-so you can watch which conservation laws survive discretisation.</p>
+<p>Each demonstration integrates the same realisation of the noise, or the same driving rough path, with a structure-preserving scheme and with a standard alternative.
+One may thus observe directly which conservation laws survive discretisation. The simulations run in the browser.</p>
 
 <div class="box-grid one">
   <div class="box-item">
     <h3>Stochastic multisymplectic PDEs</h3>
-    <p>The nonlinear Schrödinger equation with stochastic transport or stochastic dispersion, written as a stochastic multisymplectic PDE.
-      The Preissman box scheme, midpoint in both time and space, keeps the discrete 2-form conservation law, mass and, for linear problems,
-      momentum to machine precision, while a linearly implicit scheme does not.</p>
-    <p><a href="{{ '/science/stochastic-multisymplectic/' | relative_url }}" class="btn btn--info">Launch demo</a></p>
+    <p>We consider the nonlinear Schrödinger (NLS) equation with stochastic transport or stochastic dispersion as a stochastic multisymplectic partial differential equation (PDE).
+      The Preissmann box scheme, which is the midpoint rule in both time and space, preserves the discrete 2-form conservation law and the mass to machine precision,
+      together with the momentum for linear problems. A linearly implicit scheme, which treats the cubic nonlinearity explicitly, loses both the 2-form and the mass conservation.</p>
+    <p><a href="{{ '/science/stochastic-multisymplectic/' | relative_url }}" class="btn btn--info">Launch demo</a>
+      <a href="https://github.com/Dochu1/stochastic-multisymplectic-pdes" class="btn">Code on GitHub</a></p>
   </div>
 
   <div class="box-item">
     <h3>Rough-path-driven adjoint systems</h3>
-    <p>Gradient-based data assimilation for a pendulum driven by a fractional Brownian path. The rough symplectic partitioned Runge–Kutta pairing
-      keeps the adjoint quasi-conservation law to machine precision and returns the exact gradient of the discrete problem;
-      a mismatched explicit pairing gives biased gradients.</p>
-    <p><a href="{{ '/science/rough-adjoint/' | relative_url }}" class="btn btn--info">Launch demo</a></p>
+    <p>We recover the initial state of a pendulum driven by a sample path of fractional Brownian motion (fBm) from noisy observations, using gradients computed by adjoint sweeps.
+      The rough symplectic partitioned Runge–Kutta (RSPRK) pairing preserves the adjoint quasi-conservation law to machine precision, and therefore returns the exact gradient of the discrete loss.
+      A non-symplectic explicit pairing breaks this law and yields biased gradients, with which gradient descent stalls away from a stationary point.</p>
+    <p><a href="{{ '/science/rough-adjoint/' | relative_url }}" class="btn btn--info">Launch demo</a>
+      <a href="https://github.com/Dochu1/rough-sprk" class="btn">Code on GitHub</a></p>
   </div>
 </div>
 

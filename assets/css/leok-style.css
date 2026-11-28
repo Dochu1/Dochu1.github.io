@@ -5,6 +5,9 @@
 :root {
   --navy: #182B49;
   --navy-2: #2A456C;
+  --topbar: var(--navy);     /* top bar and footer background */
+  --topbar-2: var(--navy-2); /* menu button and dropdown borders */
+  --topbar-accent: var(--gold); /* hover and current-page links in the top bar */
   --gold: #C69214;
   --gold-light: #F3E3B8;
   --text: #333333;
@@ -36,29 +39,29 @@ strong, b { color: var(--navy); }
 
 /* ---------- Top navigation ---------- */
 .masthead {
-  background: var(--navy);
+  background: var(--topbar);
   border-bottom: none;
   position: sticky;
   top: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-.greedy-nav { background: var(--navy); padding-left: 9rem; }
+.greedy-nav { background: var(--topbar); padding-left: 9rem; }
 /* site name pinned left; menu links pushed right. The greedy-nav script measures the width of
    .visible-links, so the name is taken out of the flow and its space reserved with padding. */
 .greedy-nav .visible-links { margin-left: auto; }
 .greedy-nav .visible-links li:first-child { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
 .greedy-nav button:not(.hidden) + .visible-links { margin-right: 3.2em; }
 .greedy-nav a { color: var(--white); }
-.greedy-nav a:hover, .greedy-nav a.active { color: var(--gold); }
+.greedy-nav a:hover, .greedy-nav a.active { color: var(--topbar-accent); }
 .greedy-nav a.active { font-weight: 600; }
 .greedy-nav .visible-links li:first-child a { color: var(--white); letter-spacing: 1px; font-weight: 700; }
-.greedy-nav .visible-links a:before { background: var(--gold); }
-.greedy-nav button { background-color: var(--navy-2); border-radius: 4px; }
-.greedy-nav .hidden-links { background: var(--navy); border-color: var(--navy-2); }
-.greedy-nav .hidden-links:before { border-color: var(--navy-2) transparent; }
-.greedy-nav .hidden-links:after { border-color: var(--navy) transparent; }
+.greedy-nav .visible-links a:before { background: var(--topbar-accent); }
+.greedy-nav button { background-color: var(--topbar-2); border-radius: 4px; }
+.greedy-nav .hidden-links { background: var(--topbar); border-color: var(--topbar-2); }
+.greedy-nav .hidden-links:before { border-color: var(--topbar-2) transparent; }
+.greedy-nav .hidden-links:after { border-color: var(--topbar) transparent; }
 .greedy-nav .hidden-links li { border-bottom-color: rgba(255, 255, 255, 0.08); }
-.greedy-nav .hidden-links a:hover { color: var(--gold); background: rgba(255, 255, 255, 0.05); }
+.greedy-nav .hidden-links a:hover { color: var(--topbar-accent); background: rgba(255, 255, 255, 0.05); }
 
 /* ---------- Sidebar ---------- */
 .author__avatar img {
@@ -227,7 +230,7 @@ a.btn, .page__content a.btn { text-decoration: none !important; }
 .btn--inverse { background-color: var(--white); }
 
 /* ---------- Footer ---------- */
-.page__footer { background: var(--navy); color: rgba(255, 255, 255, 0.85); }
+.page__footer { background: var(--topbar); color: rgba(255, 255, 255, 0.85); }
 .page__footer a { color: var(--white); }
-.page__footer a:hover { color: var(--gold); }
-.page__footer .fas, .page__footer .fab, .page__footer .far, .page__footer .fal, .page__footer .fa { color: var(--gold); }
+.page__footer a:hover { color: var(--topbar-accent); }
+.page__footer .fas, .page__footer .fab, .page__footer .far, .page__footer .fal, .page__footer .fa { color: var(--topbar-accent); }

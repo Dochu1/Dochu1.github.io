@@ -7,9 +7,9 @@ excerpt: "Interactive demo: adjoint sensitivities for a pendulum driven by a rou
 ---
 <p><a href="{{ '/science/' | relative_url }}">&larr; Science</a></p>
 
-<p>A pendulum is driven by a sample path of fractional Brownian motion, a rough path when \(H < \tfrac12\).
-From noisy observations of its trajectory we recover the unknown initial state by gradient descent, with the gradient computed by an adjoint sweep.
-The same observations and driving path are used with two forward/adjoint pairings.</p>
+<p>We consider a pendulum driven by a sample path of fractional Brownian motion (fBm), which is a rough path for \(H < \tfrac12\).
+From noisy observations of its trajectory, we recover the unknown initial state by gradient descent, where the gradient is computed by an adjoint sweep.
+The same observations and driving path are used for two forward/adjoint pairings.</p>
 
 <div class="sim-stage">
   <canvas id="phase" aria-label="Phase plane with observations and fitted trajectories, and the driving path"></canvas>
@@ -53,43 +53,45 @@ The same observations and driving path are used with two forward/adjoint pairing
 <p class="readout" id="readout"></p>
 
 <h2>The model</h2>
-<p>The forward system is a rough Hamiltonian system with \(H_0 = \tfrac12 p^2 - \cos q\) and \(H_1 = -\sigma\cos q\):</p>
+<p>The forward system is a rough Hamiltonian system with \(H_0 = \tfrac12 p^2 - \cos q\) and \(H_1 = -\sigma\cos q\), namely</p>
 
 $$ \mathrm{d}q = p\,\mathrm{d}t, \qquad \mathrm{d}p = -\sin q\,\big(\mathrm{d}t + \sigma\,\mathrm{d}\mathbf{Z}_t\big), $$
 
-<p>driven by the geometric rough path \(\mathbf{Z}\) above \(Z\). With a single rough driver alongside \(t\), the lift needs no extra Lévy area.
-For a loss \(J(x_0) = \tfrac12\sum_k |x(t_k) - y_k|^2\), the adjoint variable \(\lambda\) solves the rough adjoint system
-\(\mathrm{d}\lambda = -Df_0(x)^{\!\top}\lambda\,\mathrm{d}t - Df_1(x)^{\!\top}\lambda\,\mathrm{d}\mathbf{Z}_t\), with jumps \(x(t_k) - y_k\) at the observation times.
-Then \(\nabla J = \lambda(0)\).
-The adjoint and forward systems together form a rough Hamiltonian system, derived from a Type-II rough variational principle.
-It has the pathwise quasi-conservation law</p>
+<p>driven by the geometric rough path \(\mathbf{Z}\) above \(Z\). Since there is a single rough driver alongside \(t\), the lift requires no additional Lévy area.
+For the loss \(J(x_0) = \tfrac12\sum_k |x(t_k) - y_k|^2\), the adjoint variable \(\lambda\) satisfies the rough adjoint system
+\(\mathrm{d}\lambda = -Df_0(x)^{\!\top}\lambda\,\mathrm{d}t - Df_1(x)^{\!\top}\lambda\,\mathrm{d}\mathbf{Z}_t\), with jumps \(x(t_k) - y_k\) at the observation times,
+and the gradient is given by \(\nabla J = \lambda(0)\).
+The forward and adjoint systems together form a rough Hamiltonian system, which follows from a Type-II rough variational principle with split boundary conditions.
+Consequently, one has the pathwise quasi-conservation law</p>
 
 $$ \langle \lambda(t), \delta x(t)\rangle - \sum_{t_k \ge t} \langle x(t_k) - y_k,\, \delta x(t_k)\rangle = \text{const}, $$
 
-<p>for every solution \(\delta x\) of the variational equation. This identity underlies adjoint sensitivity analysis.</p>
+<p>for every solution \(\delta x\) of the variational equation. This identity underpins adjoint sensitivity analysis.</p>
 
 <h2>What the plots show</h2>
-<p>Top row: the misfit \(J\) and the true gradient \(|\nabla J|\) at the current estimate, after each descent step.
-Bottom row: how far each adjoint gradient \(\lambda_0\) is from a finite-difference gradient, and the quasi-conservation residual \(|Q_n|\) along the current trajectory,
+<p><strong>Reading the plots.</strong> The top row shows the misfit \(J\) and the true gradient \(|\nabla J|\) at the current estimate after each descent step.
+The bottom row shows the distance between each adjoint gradient \(\lambda_0\) and a finite-difference gradient, and the quasi-conservation residual \(|Q_n|\) along the current trajectory,
 relative to \(\sum_k|\langle r_k,\delta x_k\rangle|\). The number at the right edge of each curve is its latest value.</p>
-<ul>
-  <li><strong>RSPRK.</strong> The one-stage Gauss rough symplectic partitioned Runge–Kutta method uses implicit midpoint forward,
-    \(x_{n+1} = x_n + f_0(\bar x)\Delta t + f_1(\bar x)\Delta Z_n\), and its symplectic partner backward,
-    \((I - \tfrac12A_n^{\!\top})\lambda_n = (I + \tfrac12A_n^{\!\top})\lambda_{n+1}\) with \(A_n = Df_0(\bar x)\Delta t + Df_1(\bar x)\Delta Z_n\).
-    This preserves the discrete quasi-conservation law to machine precision (bottom right).
-    The adjoint gradient is therefore exactly the gradient of the discrete loss: its difference from a finite-difference gradient sits at the finite-difference floor (bottom left),
-    and gradient descent drives the true gradient to zero.</li>
-  <li><strong>Heun / Heun.</strong> The forward map uses an explicit Stratonovich-consistent scheme, and the continuous adjoint equation is integrated backward with the same scheme.
-    This pairing is not symplectic. The quasi-conservation law fails, and the computed gradient is biased, more so for rougher paths (small \(H\)) and coarser grids.
-    Gradient descent then settles where the <em>biased</em> gradient vanishes, so the true gradient of its own loss stalls away from zero (top right).</li>
-</ul>
-<p>Gradient descent uses an Armijo backtracking line search on each scheme's own loss, along that scheme's adjoint gradient.
-The two losses belong to two different discrete problems, so their values are not directly comparable.
-What matters is whether each run reaches a stationary point of its own problem.
-The observations come from a reference solution on a 20× finer grid, with Gaussian noise of standard deviation 0.05.
-Changing \(H\), \(\sigma\) or the grid draws a new problem.</p>
 
-<p>Paper: R. Hu and M. Leok, <a href="https://arxiv.org/abs/2609.06337">Rough variational principles and applications to adjoint systems</a>, preprint, 2026.</p>
+<p><strong>RSPRK.</strong> The one-stage Gauss rough symplectic partitioned Runge–Kutta (RSPRK) method uses the implicit midpoint rule forward,
+\(x_{n+1} = x_n + f_0(\bar x)\Delta t + f_1(\bar x)\Delta Z_n\), together with its symplectic partner backward,
+\((I - \tfrac12A_n^{\!\top})\lambda_n = (I + \tfrac12A_n^{\!\top})\lambda_{n+1}\) with \(A_n = Df_0(\bar x)\Delta t + Df_1(\bar x)\Delta Z_n\).
+This pairing preserves the discrete quasi-conservation law to machine precision (bottom right).
+Consequently, the adjoint gradient is exactly the gradient of the discrete loss: its difference from a finite-difference gradient sits at the finite-difference floor (bottom left),
+and gradient descent drives the true gradient to zero (top right).</p>
+
+<p><strong>Heun / Heun.</strong> The forward map uses an explicit Stratonovich-consistent scheme, and the continuous adjoint equation is integrated backward with the same scheme.
+This pairing is not symplectic. Hence, the quasi-conservation law fails and the computed gradient is biased, increasingly so for rougher paths (smaller \(H\)) and coarser grids.
+Gradient descent therefore settles where the <em>biased</em> gradient vanishes, and the true gradient of its own loss stalls away from zero (top right).</p>
+
+<p><strong>Optimisation set-up.</strong> Gradient descent uses an Armijo backtracking line search on each scheme's own loss, along that scheme's adjoint gradient.
+We remark that the two losses belong to two different discrete problems, so their values are not directly comparable;
+what matters is whether each run reaches a stationary point of its own problem.
+The observations are generated from a reference solution on a 20× finer grid, perturbed by Gaussian noise of standard deviation 0.05.
+Changing \(H\), \(\sigma\) or the grid generates a new problem.</p>
+
+<p>Paper: R. Hu and M. Leok, <a href="https://arxiv.org/abs/2609.06337">Rough variational principles and applications to adjoint systems</a>, preprint, 2026.<br>
+Code: <a href="https://github.com/Dochu1/rough-sprk">github.com/Dochu1/rough-sprk</a> (Python).</p>
 
 <script src="{{ '/assets/js/demos/common.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/demos/rough-adjoint.js' | relative_url }}"></script>

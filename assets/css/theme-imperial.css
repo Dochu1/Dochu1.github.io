@@ -1,0 +1,17 @@
+/* Alternative colour scheme: Imperial College London.
+   Overrides the navy/gold variables in leok-style.css with Imperial's long-standing brand palette:
+   Navy #002147, Imperial Blue #003E74, Process Blue #0091D4, Light Blue #D4EFFC.
+   Enable it by setting  color_scheme: imperial  in _config.yml (see _includes/head/custom.html). */
+:root {
+  --navy: #002147;       /* headings and strong text */
+  --topbar: #003E74;     /* top bar and footer: Imperial Blue */
+  --topbar-2: #002147;   /* menu button and dropdown borders: Navy */
+  --topbar-accent: #D4EFFC; /* hover and current-page links in the top bar: Light Blue */
+  --navy-2: #003E74;     /* links, hover states */
+  --gold: #0091D4;       /* accents: underlines, bullets, buttons, sidebar title */
+  --gold-light: #D4EFFC; /* tag background */
+  --bg: #F5F7F9;
+}
+.pub-tag { color: #003E74; }
+.btn--info { color: #FFFFFF !important; }
+.btn--info:hover { background-color: #006EAF; border-color: #006EAF !important; color: #FFFFFF !important; }

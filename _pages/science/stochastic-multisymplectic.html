@@ -7,9 +7,9 @@ excerpt: "Interactive demo: the stochastic nonlinear Schrödinger equation as a 
 ---
 <p><a href="{{ '/science/' | relative_url }}">&larr; Science</a></p>
 
-<p>The nonlinear Schrödinger (NLS) equation with stochastic transport or stochastic dispersion is a <em>stochastic multisymplectic PDE</em>:
-it comes from a stochastic variational principle, and its solutions satisfy a stochastic 2-form conservation law in space and time.
-Below, the same noise drives two discretisations. The top panel uses the multisymplectic box scheme (midpoint in time and in space), the bottom one a linearly implicit scheme.</p>
+<p>We consider the nonlinear Schrödinger (NLS) equation with stochastic transport or stochastic dispersion as a <em>stochastic multisymplectic partial differential equation</em> (PDE).
+That is, the equation arises from a stochastic variational principle, and its solutions satisfy a stochastic 2-form conservation law in space and time.
+Below, the same realisation of the noise drives two discretisations: the multisymplectic box scheme, which is the midpoint rule in time and in space (top), and a linearly implicit scheme (bottom).</p>
 
 <div class="sim-stage">
   <canvas id="st-ms" aria-label="Space-time plot of |psi| for the multisymplectic box scheme"></canvas>
@@ -67,51 +67,53 @@ Below, the same noise drives two discretisations. The top panel uses the multisy
 <p class="readout" id="readout"></p>
 
 <h2>The model</h2>
-<p>Write \(\psi = p + iq\). We solve, on a periodic domain,</p>
+<p>Writing \(\psi = p + iq\), we solve the following equation on a periodic domain,</p>
 
 $$ \mathrm{d}\psi = i\big(\psi_{xx} + 2\gamma|\psi|^2\psi\big)\,\mathrm{d}t \;+\; i\,\varepsilon\,\psi_{xx}\circ \mathrm{d}W^D_t \;-\; \sigma\Big(\xi\,\psi_x + \tfrac12\xi_x\,\psi\Big)\circ \mathrm{d}W^T_t . $$
 
-<ul>
-  <li><strong>Stochastic transport</strong> (\(\sigma>0\)): \(\psi\) is carried by the vector field \(\xi(x)\) as a half-density.
-    The noise Hamiltonian is \(\int \xi\,\mathrm{Im}(\bar\psi\psi_x)\,\mathrm{d}x\), the momentum density paired with \(\xi\).</li>
-  <li><strong>Stochastic dispersion</strong> (\(\varepsilon>0\)): the dispersion coefficient fluctuates in time, with noise Hamiltonian \(\int |\psi_x|^2\,\mathrm{d}x\).</li>
-</ul>
+<p><strong>Stochastic transport.</strong> For \(\sigma>0\), \(\psi\) is transported by the vector field \(\xi(x)\) as a half-density.
+The corresponding noise Hamiltonian is \(\int \xi\,\mathrm{Im}(\bar\psi\psi_x)\,\mathrm{d}x\), namely the momentum density paired with \(\xi\).</p>
 
-<p>Both noises enter through the same variational and Hamiltonian structure as the drift. As a result the equation is a stochastic multisymplectic PDE
-\(K\,\mathrm{d}z + L z_x\,\mathrm{d}t = \nabla S(z)\,\mathrm{d}t + \nabla S_1(z)\circ \mathrm{d}W\) with \(z = (p, q, p_x, q_x)\).
-It satisfies the stochastic 2-form conservation law \(\mathrm{d}\omega + \partial_x\kappa\,\mathrm{d}t = 0\), where
+<p><strong>Stochastic dispersion.</strong> For \(\varepsilon>0\), the dispersion coefficient fluctuates in time, with noise Hamiltonian \(\int |\psi_x|^2\,\mathrm{d}x\).</p>
+
+<p><strong>Conservation laws.</strong> Both noises enter through the same variational and Hamiltonian structure as the drift. Consequently, the equation is a stochastic multisymplectic PDE
+\(K\,\mathrm{d}z + L z_x\,\mathrm{d}t = \nabla S(z)\,\mathrm{d}t + \nabla S_1(z)\circ \mathrm{d}W\) with \(z = (p, q, p_x, q_x)\),
+which satisfies the stochastic 2-form conservation law \(\mathrm{d}\omega + \partial_x\kappa\,\mathrm{d}t = 0\), where
 \(\omega = \tfrac12\,\mathrm{d}z\wedge K\mathrm{d}z\) and \(\kappa = \tfrac12\,\mathrm{d}z\wedge L\mathrm{d}z\).
-It also conserves the mass \(M = \int|\psi|^2\,\mathrm{d}x\) pathwise. By the stochastic Noether theorem,
-it conserves the momentum \(P = \int \mathrm{Im}(\bar\psi\psi_x)\,\mathrm{d}x\) whenever the noise is translation invariant: constant \(\xi\), or stochastic dispersion.</p>
+The mass \(M = \int|\psi|^2\,\mathrm{d}x\) is conserved pathwise. By the stochastic Noether theorem,
+the momentum \(P = \int \mathrm{Im}(\bar\psi\psi_x)\,\mathrm{d}x\) is conserved whenever the noise is translation invariant, that is, for constant \(\xi\) or for stochastic dispersion.</p>
 
 <h2>The box scheme</h2>
-<p>Write the equation as a first-order system in \(z = (p, q, v, w)\) with \(\psi = p + iq\), \(v = p_x\) and \(w = q_x\).
-On every space-time cell \([x_j, x_{j+1}]\times[t_n, t_{n+1}]\), the Preissman box scheme replaces \(\partial_t\) by \(\delta_t M_x\) and \(\partial_x\) by \(\delta_x M_t\), with</p>
+<p>We write the equation as a first-order system in \(z = (p, q, v, w)\), where \(\psi = p + iq\), \(v = p_x\) and \(w = q_x\).
+On each space-time cell \([x_j, x_{j+1}]\times[t_n, t_{n+1}]\), the Preissmann box scheme replaces \(\partial_t\) by \(\delta_t M_x\) and \(\partial_x\) by \(\delta_x M_t\), where</p>
 
 $$ \delta_x u_j = \frac{u_{j+1}-u_j}{\Delta x}, \qquad M_x u_j = \frac{u_{j+1}+u_j}{2}, $$
 
-<p>and the same in time. Every right-hand side, including the noise terms, is evaluated at the cell centre.
-This is the midpoint rule in time and in space, the lowest-order member of the collocation family.
-Eliminating \(v, w\) shows that the cell averages \(\phi = M_x\psi\) evolve by the implicit midpoint rule in time, with the box derivative \(D = \delta_x M_x^{-1}\) in space.
-\(D\) is skew-adjoint, with symbol \(\tfrac{2i}{\Delta x}\tan(\pi k/N)\).
-Because the box operators are circulant on the periodic grid, each implicit stage is solved with discrete Fourier transforms.
-\(N\) is odd so that \(M_x\) is invertible; an even \(N\) leaves a spurious checkerboard mode.</p>
+<p>and similarly in time. All right-hand sides, including the noise terms, are evaluated at the cell centre.
+That is, the box scheme is the midpoint rule in both time and space, and is the lowest-order member of the collocation family.
+Eliminating \(v\) and \(w\) shows that the cell averages \(\phi = M_x\psi\) evolve by the implicit midpoint rule in time with the box derivative \(D = \delta_x M_x^{-1}\) in space,
+where \(D\) is skew-adjoint with symbol \(\tfrac{2i}{\Delta x}\tan(\pi k/N)\).
+Since the box operators are circulant on the periodic grid, each implicit stage is solved with discrete Fourier transforms.
+We take \(N\) odd so that \(M_x\) is invertible; for even \(N\), a spurious checkerboard mode remains.</p>
 
 <h2>What the plots show</h2>
-<ul>
-  <li><strong>2-form.</strong> With periodic boundaries, the local law integrates to conservation of the symplectic form
-    \(\omega(\delta_1,\delta_2) = \int \mathrm{Im}(\bar\delta_1\delta_2)\,\mathrm{d}x\) for any two solutions \(\delta_1,\delta_2\) of the linearised equation.
-    We propagate two such variations alongside \(\psi\), each with the linearisation of its own scheme.
-    The box scheme keeps \(\omega\) at round-off. The linearly implicit scheme does not, even though it treats every linear term with the midpoint rule.</li>
-  <li><strong>Mass</strong> is a quadratic invariant, so the midpoint rule in time conserves the discrete mass \(\sum_j|\phi_j|^2\Delta x\) exactly. Taking the cubic term explicitly breaks this.</li>
-  <li><strong>Momentum.</strong> For the linear equation (untick the cubic term) with translation-invariant noise, the box scheme also conserves discrete momentum exactly.
-    With the cubic term, the box scheme conserves momentum only approximately, and with \(\xi(x)\) the exact flow does not conserve it at all.
-    For the linear equation the two schemes coincide, because only the treatment of the cubic term differs.</li>
-</ul>
-<p>The Brownian increments are truncated at \(\pm\sqrt{2|\ln\Delta t|\,\Delta t}\), which keeps the implicit stages solvable without changing the order of convergence.</p>
+<p><strong>2-form.</strong> With periodic boundary conditions, the local conservation law integrates to the conservation of the symplectic form
+\(\omega(\delta_1,\delta_2) = \int \mathrm{Im}(\bar\delta_1\delta_2)\,\mathrm{d}x\) for any two solutions \(\delta_1,\delta_2\) of the linearised equation.
+We propagate two such variations alongside \(\psi\), each with the linearisation of its own scheme.
+One finds that the box scheme preserves \(\omega\) to round-off, whilst the linearly implicit scheme does not, even though it treats every linear term with the midpoint rule.</p>
+
+<p><strong>Mass.</strong> The mass is a quadratic invariant, so the midpoint rule in time conserves the discrete mass \(\sum_j|\phi_j|^2\Delta x\) exactly.
+Treating the cubic term explicitly breaks this conservation law.</p>
+
+<p><strong>Momentum.</strong> For the linear equation (untick the cubic term) with translation-invariant noise, the box scheme also conserves the discrete momentum exactly;
+in this case, the two schemes coincide, since they differ only in the treatment of the cubic term.
+With the cubic term, the box scheme conserves momentum only approximately, and for spatially varying \(\xi(x)\) the momentum is not conserved by the exact flow either.</p>
+
+<p><strong>Truncated increments.</strong> The Brownian increments are truncated at \(\pm\sqrt{2|\ln\Delta t|\,\Delta t}\), which ensures that the implicit stages are solvable without changing the order of convergence.</p>
 
 <p>Paper: R. Hu and L. Peng, <a href="https://doi.org/10.1111/sapm.70112">Stochastic multisymplectic PDEs and their structure-preserving numerical methods</a>,
-<em>Studies in Applied Mathematics</em> 155(3), e70112, 2025 (<a href="https://arxiv.org/abs/2501.16913">arXiv:2501.16913</a>).</p>
+<em>Studies in Applied Mathematics</em> 155(3), e70112, 2025 (<a href="https://arxiv.org/abs/2501.16913">arXiv:2501.16913</a>).<br>
+Code: <a href="https://github.com/Dochu1/stochastic-multisymplectic-pdes">github.com/Dochu1/stochastic-multisymplectic-pdes</a> (Python).</p>
 
 <script src="{{ '/assets/js/demos/common.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/demos/stochastic-multisymplectic.js' | relative_url }}"></script>

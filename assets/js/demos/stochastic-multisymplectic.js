@@ -1,4 +1,4 @@
-/* Stochastic multisymplectic NLS with the Preissman box scheme.
+/* Stochastic multisymplectic NLS with the Preissmann box scheme.
      dψ = i (ψ_xx + 2γ|ψ|²ψ) dt + i ψ_xx ∘ ε dW_D(t) − σ T ψ ∘ dW_T(t),
      T u = ½ (ξ u_x + (ξ u)_x)   (skew-adjoint stochastic transport)
    on x ∈ [−L, L) with periodic boundary conditions.
